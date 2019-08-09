@@ -1,0 +1,164 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:panelStretchLayout id="psl1" bottomHeight="20px">
+    <f:facet name="center">
+      <af:panelFormLayout id="pfl1">
+        <af:panelLabelAndMessage label="#{bindings.UserId.hints.label}"
+                                 id="plam3">
+          <af:outputText value="#{bindings.UserId.inputValue}" id="ot3"/>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.UName.hints.label}"
+                                 id="plam2">
+          <af:outputText value="#{bindings.UName.inputValue}" id="ot2"/>
+        </af:panelLabelAndMessage>
+        <af:panelGroupLayout id="pgl1">
+          <af:decorativeBox id="db1" theme="medium" topHeight="1px"
+                            inlineStyle="height:0.8cm; width:5.0cm;">
+            <f:facet name="center">
+              <af:commandLink text="UPDATE PASSWORD              "
+                              id="updatePasswordCL"
+                              inlineStyle="font-size:120%; font-weight:lighter; color:Navy;">
+                <af:showPopupBehavior popupId="updatePasswordPopup"/>
+              </af:commandLink>
+            </f:facet>
+          </af:decorativeBox>
+        </af:panelGroupLayout>
+        <af:inputText value="#{bindings.UDescription.inputValue}"
+                      label="#{bindings.UDescription.hints.label}"
+                      required="#{bindings.UDescription.hints.mandatory}"
+                      columns="#{bindings.UDescription.hints.displayWidth}"
+                      maximumLength="#{bindings.UDescription.hints.precision}"
+                      shortDesc="#{bindings.UDescription.hints.tooltip}"
+                      id="it9">
+          <f:validator binding="#{bindings.UDescription.validator}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.FirstName.inputValue}"
+                      label="#{bindings.FirstName.hints.label}"
+                      required="#{bindings.FirstName.hints.mandatory}"
+                      columns="#{bindings.FirstName.hints.displayWidth}"
+                      maximumLength="#{bindings.FirstName.hints.precision}"
+                      shortDesc="#{bindings.FirstName.hints.tooltip}" id="it5">
+          <f:validator binding="#{bindings.FirstName.validator}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.LastName.inputValue}"
+                      label="#{bindings.LastName.hints.label}"
+                      required="#{bindings.LastName.hints.mandatory}"
+                      columns="#{bindings.LastName.hints.displayWidth}"
+                      maximumLength="#{bindings.LastName.hints.precision}"
+                      shortDesc="#{bindings.LastName.hints.tooltip}" id="it3">
+          <f:validator binding="#{bindings.LastName.validator}"/>
+        </af:inputText>
+        <af:selectOneChoice value="#{bindings.Gender.inputValue}"
+                            label="#{bindings.Gender.label}"
+                            required="#{bindings.Gender.hints.mandatory}"
+                            shortDesc="#{bindings.Gender.hints.tooltip}"
+                            id="soc1">
+          <f:selectItems value="#{bindings.Gender.items}" id="si1"/>
+        </af:selectOneChoice>
+        <af:inputText value="#{bindings.Email.inputValue}"
+                      label="#{bindings.Email.hints.label}"
+                      required="#{bindings.Email.hints.mandatory}"
+                      columns="#{bindings.Email.hints.displayWidth}"
+                      maximumLength="#{bindings.Email.hints.precision}"
+                      shortDesc="#{bindings.Email.hints.tooltip}" id="it11">
+          <f:validator binding="#{bindings.Email.validator}"/>
+        </af:inputText>
+        <af:panelLabelAndMessage label="#{bindings.UserTypeCode.hints.label}"
+                                 id="plam1">
+          <af:outputText value="#{bindings.UserTypeCode.inputValue}" id="ot1"/>
+        </af:panelLabelAndMessage>
+        <af:inputText value="#{bindings.AddressStreet.inputValue}"
+                      label="#{bindings.AddressStreet.hints.label}"
+                      required="#{bindings.AddressStreet.hints.mandatory}"
+                      columns="#{bindings.AddressStreet.hints.displayWidth}"
+                      maximumLength="#{bindings.AddressStreet.hints.precision}"
+                      shortDesc="#{bindings.AddressStreet.hints.tooltip}"
+                      id="it6">
+          <f:validator binding="#{bindings.AddressStreet.validator}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.AddressCity.inputValue}"
+                      label="#{bindings.AddressCity.hints.label}"
+                      required="#{bindings.AddressCity.hints.mandatory}"
+                      columns="#{bindings.AddressCity.hints.displayWidth}"
+                      maximumLength="#{bindings.AddressCity.hints.precision}"
+                      shortDesc="#{bindings.AddressCity.hints.tooltip}"
+                      id="it7">
+          <f:validator binding="#{bindings.AddressCity.validator}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.AddressState.inputValue}"
+                      label="#{bindings.AddressState.hints.label}"
+                      required="#{bindings.AddressState.hints.mandatory}"
+                      columns="#{bindings.AddressState.hints.displayWidth}"
+                      maximumLength="#{bindings.AddressState.hints.precision}"
+                      shortDesc="#{bindings.AddressState.hints.tooltip}"
+                      id="it4">
+          <f:validator binding="#{bindings.AddressState.validator}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.AddressPostalCode.inputValue}"
+                      label="#{bindings.AddressPostalCode.hints.label}"
+                      required="#{bindings.AddressPostalCode.hints.mandatory}"
+                      columns="#{bindings.AddressPostalCode.hints.displayWidth}"
+                      maximumLength="#{bindings.AddressPostalCode.hints.precision}"
+                      shortDesc="#{bindings.AddressPostalCode.hints.tooltip}"
+                      id="it8">
+          <f:validator binding="#{bindings.AddressPostalCode.validator}"/>
+          <af:convertNumber groupingUsed="false"
+                            pattern="#{bindings.AddressPostalCode.format}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.AddressCountryCode.inputValue}"
+                      label="#{bindings.AddressCountryCode.hints.label}"
+                      required="#{bindings.AddressCountryCode.hints.mandatory}"
+                      columns="#{bindings.AddressCountryCode.hints.displayWidth}"
+                      maximumLength="#{bindings.AddressCountryCode.hints.precision}"
+                      shortDesc="#{bindings.AddressCountryCode.hints.tooltip}"
+                      id="it12">
+          <f:validator binding="#{bindings.AddressCountryCode.validator}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.MobilePhoneNumber.inputValue}"
+                      label="#{bindings.MobilePhoneNumber.hints.label}"
+                      required="#{bindings.MobilePhoneNumber.hints.mandatory}"
+                      columns="#{bindings.MobilePhoneNumber.hints.displayWidth}"
+                      maximumLength="#{bindings.MobilePhoneNumber.hints.precision}"
+                      shortDesc="#{bindings.MobilePhoneNumber.hints.tooltip}"
+                      id="it2">
+          <f:validator binding="#{bindings.MobilePhoneNumber.validator}"/>
+          <af:convertNumber groupingUsed="false"
+                            pattern="#{bindings.MobilePhoneNumber.format}"/>
+        </af:inputText>
+        <f:facet name="footer">
+          <af:commandButton text="Update" id="updateCB"
+                            action="#{updateStudent.updateAction}"/>
+        </f:facet>
+      </af:panelFormLayout>
+    </f:facet>
+    <f:facet name="top">
+      <af:panelHeader text="Update Profile" id="ph1">
+        <f:facet name="toolbar">
+          <af:toolbar id="t1">
+            <af:commandToolbarButton text="Dashboard" id="dashboardCTB"
+                                     action="dashboard"/>
+          </af:toolbar>
+        </f:facet>
+      </af:panelHeader>
+    </f:facet>
+  </af:panelStretchLayout>
+  <af:popup id="updatePasswordPopup" contentDelivery="lazyUncached">
+    <af:dialog id="d1" title="Update Password" closeIconVisible="false"
+               affirmativeTextAndAccessKey="Update"
+               dialogListener="#{updateStudent.updatePasswordDialogListener}">
+      <af:panelFormLayout id="pfl2">
+        <af:inputText label="Old Password" id="oldPasswordIT"
+                      value="#{updateStudent.oldPassword}" autoSubmit="true"/>
+        <af:inputText label="New Password" id="newPasswordIT"
+                      value="#{updateStudent.newPassword}" autoSubmit="true"/>
+        <af:inputText label="Confirm Password" id="confirmPasswordIT"
+                      value="#{updateStudent.confirmPassword}"
+                      autoSubmit="true"/>
+      </af:panelFormLayout>
+    </af:dialog>
+  </af:popup>
+  <!--oracle-jdev-comment:preferred-managed-bean-name:updateStudent-->
+</jsp:root>

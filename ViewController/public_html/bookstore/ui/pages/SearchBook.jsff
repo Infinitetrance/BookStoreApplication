@@ -1,0 +1,171 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:panelStretchLayout id="psl1" topHeight="22px">
+    <f:facet name="center">
+      <af:panelCollection id="pc1">
+        <f:facet name="menus"/>
+        <f:facet name="toolbar">
+          <af:toolbar id="t2">
+            <af:panelGroupLayout id="pgl1" layout="horizontal">
+              <af:inputText value="#{bindings.bindVariableValue.inputValue}"
+                            label="Enter Search Value"
+                            required="#{bindings.bindVariableValue.hints.mandatory}"
+                            columns="25"
+                            maximumLength="#{bindings.bindVariableValue.hints.precision}"
+                            shortDesc="#{bindings.bindVariableValue.hints.tooltip}"
+                            id="searchText"
+                            binding="#{viewScope.searchBook.searchField}">
+                <f:validator binding="#{bindings.bindVariableValue.validator}"/>
+              </af:inputText>
+              <af:commandButton actionListener="#{bindings.applyVCForBooksTextualVO.execute}"
+                                disabled="#{!bindings.applyVCForBooksTextualVO.enabled}"
+                                id="searchCB" icon="/images/SearchIcon.jpg"
+                                partialSubmit="true"/>
+              <af:commandButton text="Reset" id="resetSearchCB"
+                                partialSubmit="true"
+                                action="#{viewScope.searchBook.resetSearchCB_action}"/>
+            </af:panelGroupLayout>
+          </af:toolbar>
+        </f:facet>
+        <f:facet name="statusbar"/>
+        <af:table value="#{bindings.BooksTextualVOInstance.collectionModel}"
+                  var="row" rows="#{bindings.BooksTextualVOInstance.rangeSize}"
+                  emptyText="#{bindings.BooksTextualVOInstance.viewable ? 'No data to display.' : 'Access Denied.'}"
+                  fetchSize="#{bindings.BooksTextualVOInstance.rangeSize}"
+                  rowBandingInterval="0"
+                  filterModel="#{bindings.BooksTextualVOInstanceQuery.queryDescriptor}"
+                  queryListener="#{bindings.BooksTextualVOInstanceQuery.processQuery}"
+                  filterVisible="true" varStatus="vs"
+                  selectedRowKeys="#{bindings.BooksTextualVOInstance.collectionModel.selectedRow}"
+                  selectionListener="#{bindings.BooksTextualVOInstance.collectionModel.makeCurrent}"
+                  rowSelection="single" id="t1"
+                  partialTriggers="::searchCB  :::reserveCTB">
+          <af:column sortProperty="#{bindings.BooksTextualVOInstance.hints.BookId.name}"
+                     sortable="true"
+                     headerText="#{bindings.BooksTextualVOInstance.hints.BookId.label}"
+                     id="c3" width="50">
+            <af:outputText value="#{row.BookId}" id="ot4">
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.BooksTextualVOInstance.hints.BookId.format}"/>
+            </af:outputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.BooksTextualVOInstance.hints.Title.name}"
+                     filterable="true" sortable="true"
+                     headerText="#{bindings.BooksTextualVOInstance.hints.Title.label}"
+                     id="c6" width="310">
+            <af:commandLink id="ot6" text="#{row.Title}" partialSubmit="true"
+                            disabled="#{row.Status  ne   'AVAILABLE'}">
+              <af:showPopupBehavior popupId=":::reserveBook_Popup"
+                                    align="afterEnd" alignId="ot6"/>
+              <af:setActionListener to=" #{applicationScope.bookIdToReserve}"
+                                    from="#{row.BookId}"/>
+            </af:commandLink>
+          </af:column>
+          <af:column sortProperty="#{bindings.BooksTextualVOInstance.hints.Author.name}"
+                     filterable="true" sortable="true"
+                     headerText="#{bindings.BooksTextualVOInstance.hints.Author.label}"
+                     id="c5" width="220">
+            <af:outputText value="#{row.Author}" id="ot3"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.BooksTextualVOInstance.hints.ParentCategory.name}"
+                     filterable="true" sortable="true"
+                     headerText="#{bindings.BooksTextualVOInstance.hints.ParentCategory.label}"
+                     id="c2" width="105">
+            <af:outputText value="#{row.ParentCategory}" id="ot5"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.BooksTextualVOInstance.hints.Category.name}"
+                     filterable="true" sortable="true"
+                     headerText="#{bindings.BooksTextualVOInstance.hints.Category.label}"
+                     id="c4" width="130">
+            <af:outputText value="#{row.Category}" id="ot2"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.BooksTextualVOInstance.hints.Status.name}"
+                     sortable="true"
+                     headerText="#{bindings.BooksTextualVOInstance.hints.Status.label}"
+                     id="c1">
+            <af:outputText value="#{row.Status}" id="ot1"/>
+          </af:column>
+        </af:table>
+      </af:panelCollection>
+    </f:facet>
+    <f:facet name="top">
+      <af:panelHeader text="Search Books" id="ph1">
+        <f:facet name="toolbar">
+          <af:toolbar id="t4">
+            <af:commandToolbarButton text="Dashboard" id="dashboardCTB"
+                                     action="dashboard"/>
+          </af:toolbar>
+        </f:facet>
+      </af:panelHeader>
+    </f:facet>
+  </af:panelStretchLayout>
+  <af:popup id="reserveBook_Popup"
+            binding="#{viewScope.searchBook.reserveBook_Popup}"
+            contentDelivery="lazyUncached">
+    <af:panelHeader text="Reserve Book" id="reserveBook_PH">
+      <f:facet name="context"/>
+      <f:facet name="menuBar"/>
+      <f:facet name="toolbar">
+        <af:toolbar id="t3">
+          <af:commandToolbarButton text="Reserve" id="reserveCTB"
+                                   partialSubmit="true"
+                                   disabled="#{!bindings.refreshBooksTextualVO.enabled}"
+                                   action="#{viewScope.searchBook.reserveCTB_action}">
+            <af:setActionListener from="#{bindings.BookId.inputValue}"
+                                  to="#{viewScope.searchBook.bookId}"/>
+          </af:commandToolbarButton>
+          <af:commandToolbarButton text="Cancel" id="cancelCTB"
+                                   action="#{viewScope.searchBook.cancelCTB_action}">
+            <af:setActionListener from="#{bindings.BookId.inputValue}"
+                                  to="#{viewScope.searchBook.bookId}"/>
+          </af:commandToolbarButton>
+        </af:toolbar>
+      </f:facet>
+      <f:facet name="legend"/>
+      <f:facet name="info"/>
+      <af:panelStretchLayout id="psl2">
+        <f:facet name="center">
+          <af:panelFormLayout id="pfl1">
+            <af:panelLabelAndMessage label="#{bindings.BookId.hints.label}"
+                                     id="plam5">
+              <af:outputText value="#{bindings.BookId.inputValue}"
+                             id="reserveBookId">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.BookId.format}"/>
+              </af:outputText>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{bindings.Title.hints.label}"
+                                     id="plam1">
+              <af:outputText value="#{bindings.Title.inputValue}" id="ot10"/>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{bindings.Author.hints.label}"
+                                     id="plam7">
+              <af:outputText value="#{bindings.Author.inputValue}" id="ot9"/>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{bindings.ParentCategory.hints.label}"
+                                     id="plam4">
+              <af:outputText value="#{bindings.ParentCategory.inputValue}"
+                             id="ot13"/>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{bindings.Category.hints.label}"
+                                     id="plam3">
+              <af:outputText value="#{bindings.Category.inputValue}" id="ot11"/>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{bindings.Status.hints.label}"
+                                     id="plam6">
+              <af:outputText value="#{bindings.Status.inputValue}" id="ot7"/>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{bindings.Description.hints.label}"
+                                     id="plam2">
+              <af:outputText value="#{bindings.Description.inputValue}"
+                             id="ot12"/>
+            </af:panelLabelAndMessage>
+          </af:panelFormLayout>
+        </f:facet>
+      </af:panelStretchLayout>
+    </af:panelHeader>
+  </af:popup>
+</jsp:root>

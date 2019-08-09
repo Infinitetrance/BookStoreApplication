@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="GroupmembersEO"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="GROUPMEMBERS"
+  AliasName="GroupmembersEO"
+  BindingStyle="OracleName"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <AttrArray Name="_publishEvents"/>
+  </DesignTime>
+  <Attribute
+    Name="GName"
+    IsNotNull="true"
+    Precision="200"
+    ColumnName="G_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="GROUPMEMBERS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="GMember"
+    IsNotNull="true"
+    Precision="60"
+    ColumnName="G_MEMBER"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="GROUPMEMBERS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="60"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="Groups"
+    Association="bookStore.model.asso.Fk1GroupmembersAssoc"
+    AssociationEnd="bookStore.model.asso.Fk1GroupmembersAssoc.Groups"
+    AssociationOtherEnd="bookStore.model.asso.Fk1GroupmembersAssoc.Groupmembers"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Users"
+    Association="bookStore.model.asso.Fk2GroupmembersAssoc"
+    AssociationEnd="bookStore.model.asso.Fk2GroupmembersAssoc.Users"
+    AssociationOtherEnd="bookStore.model.asso.Fk2GroupmembersAssoc.Groupmembers"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Users1"
+    Association="bookStore.model.asso.Fk2GroupmembersAssoc1"
+    AssociationEnd="bookStore.model.asso.Fk2GroupmembersAssoc1.Users1"
+    AssociationOtherEnd="bookStore.model.asso.Fk2GroupmembersAssoc1.Groupmembers1"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="PkGroupmems"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PK_GROUPMEMS"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="bookStore.model.entity.GroupmembersEO.GName"/>
+      <Item Value="bookStore.model.entity.GroupmembersEO.GMember"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007383">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007383"/>
+      <Attr Name="_checkCondition" Value='"G_NAME" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="bookStore.model.entity.GroupmembersEO.GName"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007384">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007384"/>
+      <Attr Name="_checkCondition" Value='"G_MEMBER" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="bookStore.model.entity.GroupmembersEO.GMember"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="Fk1Groupmembers">
+    <DesignTime>
+      <Attr Name="_isCascadeDelete" Value="true"/>
+      <Attr Name="_referencedKey" Value="PK_GROUPS"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK1_GROUPMEMBERS"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="bookStore.model.entity.GroupmembersEO.GName"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="Fk2Groupmembers">
+    <DesignTime>
+      <Attr Name="_isCascadeDelete" Value="true"/>
+      <Attr Name="_referencedKey" Value="PK_USERS"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK2_GROUPMEMBERS"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="bookStore.model.entity.GroupmembersEO.GMember"/>
+    </AttrArray>
+  </Key>
+</Entity>

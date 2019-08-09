@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:listView value="#{bindings.QueryRecord1.collectionModel}" var="item"
+                     emptyText="#{bindings.QueryRecord1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                     fetchSize="#{bindings.QueryRecord1.rangeSize}" id="lv1"
+                     selection="single">
+          <af:listItem id="li1">
+            <af:panelGroupLayout id="pgl1"/>
+          </af:listItem>
+        </af:listView>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.66.73" id="DataBindings" SeparateXMLFiles="false"
+             Package="bookStore.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+    <factory nameSpace="http://xmlns.oracle.com/adfm/dvt"
+             className="oracle.adfinternal.view.faces.dvt.model.binding.FacesBindingFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/bookstore/ui/pages/UserRegistration.jspx"
+          usageId="bookStore_view_UserRegistrationPageDef"/>
+    <page path="/bookstore/ui/pages/Login.jspx"
+          usageId="bookStore_view_LoginPageDef"/>
+    <page path="/bookstore/ui/pages/Error.jspx"
+          usageId="bookStore_view_ErrorPageDef"/>
+    <page path="/bookstore/ui/pages/StudentDashboard.jspx"
+          usageId="bookStore_view_StudentDashboardPageDef"/>
+    <page path="/bookstore/ui/pages/LibrarianDashboard.jspx"
+          usageId="bookStore_view_LibrarianDashboardPageDef"/>
+    <page path="/bookstore/ui/pages/AuthorizationBasedRedirector.jspx"
+          usageId="bookStore_view_AuthorizationBasedRedirectorPageDef"/>
+    <page path="/bookstore/ui/pages/SearchBook.jspx"
+          usageId="bookStore_view_SearchBookPageDef"/>
+    <page path="/bookstore/ui/pages/templates/MainTemplate.jspx"
+          usageId="bookStore_view_MainTemplatePageDef"/>
+    <page path="/bookstore/ui/pages/Query.jspx"
+          usageId="bookStore_view_QueryPageDef"/>
+    <page path="/bookstore/ui/pages/UpdateStudent.jspx"
+          usageId="bookStore_view_UpdateStudentPageDef"/>
+    <page path="/bookstore/ui/pages/StDashboard.jspx"
+          usageId="bookStore_view_StDashboardPageDef"/>
+    <page path="/bookstore/ui/pages/Query.jsff"
+          usageId="bookStore_view_QueryPageDef1"/>
+    <page path="/bookstore/ui/pages/SearchBook.jsff"
+          usageId="bookStore_view_SearchBookPageDef1"/>
+    <page path="/bookstore/ui/pages/StDashboard.jsff"
+          usageId="bookStore_view_StDashboardPageDef1"/>
+    <page path="/bookstore/ui/pages/UpdateStudent.jsff"
+          usageId="bookStore_view_UpdateStudentPageDef1"/>
+    <page path="/bookstore/ui/taskFlows/StChoresTF.xml#StChoresTF@setBooksReservedVOBindVar"
+          usageId="bookStore_view_StChoresTF_StChoresTF_setBooksReservedVOBindVarPageDef"/>
+    <page path="/bookstore/ui/taskFlows/StChoresTF.xml#StChoresTF@applyVCForQueryRecordVO"
+          usageId="bookStore_view_StChoresTF_StChoresTF_applyVCForQueryRecordVOPageDef"/>
+    <page path="/bookstore/ui/pages/QueryLib.jspx"
+          usageId="bookStore_view_QueryLibPageDef"/>
+    <page path="/bookstore/ui/pages/BookSubmitLibrarian.jspx"
+          usageId="bookStore_view_BookSubmitLibrarianPageDef"/>
+    <page path="/bookstore/ui/pages/BookSubmitLibrarian.jsff"
+          usageId="bookStore_view_BookSubmitLibrarianPageDef1"/>
+    <page path="/bookstore/ui/pages/LibDashboard.jspx"
+          usageId="bookStore_view_LibDashboardPageDef"/>
+    <page path="/view1.jspx" usageId="bookStore_view_view1PageDef"/>
+    <page path="/bookstore/ui/pages/QueryLib.jsff"
+          usageId="bookStore_view_QueryLibPageDef1"/>
+    <page path="/bookstore/ui/pages/LibDashboard.jsff"
+          usageId="bookStore_view_LibDashboardPageDef1"/>
+    <page path="/bookstore/ui/pages/chartTemp.jspx"
+          usageId="bookStore_view_chartTempPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="bookStore_view_UserRegistrationPageDef"
+          path="bookstore.ui.pages.UserRegistrationPageDef"/>
+    <page id="bookStore_view_LoginPageDef"
+          path="bookstore.ui.pages.LoginPageDef"/>
+    <page id="bookStore_view_ErrorPageDef"
+          path="bookstore.ui.pages.ErrorPageDef"/>
+    <page id="bookStore_view_StudentDashboardPageDef"
+          path="bookstore.ui.pages.StudentDashboardPageDef"/>
+    <page id="bookStore_view_LibrarianDashboardPageDef"
+          path="bookstore.ui.pages.LibrarianDashboardPageDef"/>
+    <page id="bookStore_view_AuthorizationBasedRedirectorPageDef"
+          path="bookstore.ui.pages.AuthorizationBasedRedirectorPageDef"/>
+    <page id="bookStore_view_SearchBookPageDef"
+          path="bookstore.ui.pages.SearchBookPageDef"/>
+    <page id="bookStore_view_MainTemplatePageDef"
+          path="bookstore.ui.pages.templates.MainTemplatePageDef"/>
+    <page id="bookStore_view_QueryPageDef"
+          path="bookstore.ui.pages.QueryPageDef"/>
+    <page id="bookStore_view_UpdateStudentPageDef"
+          path="bookstore.ui.pages.UpdateStudentPageDef"/>
+    <page id="bookStore_view_StDashboardPageDef"
+          path="bookstore.ui.pages.StDashboardPageDef"/>
+    <page id="bookStore_view_QueryPageDef1"
+          path="bookstore.ui.pages.QueryPageDef1"/>
+    <page id="bookStore_view_SearchBookPageDef1"
+          path="bookstore.ui.pages.SearchBookPageDef1"/>
+    <page id="bookStore_view_StDashboardPageDef1"
+          path="bookstore.ui.pages.StDashboardPageDef1"/>
+    <page id="bookStore_view_UpdateStudentPageDef1"
+          path="bookstore.ui.pages.UpdateStudentPageDef1"/>
+    <page id="bookStore_view_StChoresTF_StChoresTF_setBooksReservedVOBindVarPageDef"
+          path="bookstore.ui.taskFlows.StChoresTF_StChoresTF_setBooksReservedVOBindVarPageDef"/>
+    <page id="bookStore_view_StChoresTF_StChoresTF_applyVCForQueryRecordVOPageDef"
+          path="bookstore.ui.taskFlows.StChoresTF_StChoresTF_applyVCForQueryRecordVOPageDef"/>
+    <page id="bookStore_view_QueryLibPageDef"
+          path="bookstore.ui.pages.QueryLibPageDef"/>
+    <page id="bookStore_view_BookSubmitLibrarianPageDef"
+          path="bookstore.ui.pages.BookSubmitLibrarianPageDef"/>
+    <page id="bookStore_view_BookSubmitLibrarianPageDef1"
+          path="bookstore.ui.pages.BookSubmitLibrarianPageDef1"/>
+    <page id="bookStore_view_LibDashboardPageDef"
+          path="bookstore.ui.pages.LibDashboardPageDef"/>
+    <page id="bookStore_view_view1PageDef"
+          path="bookStore.view.pageDefs.view1PageDef"/>
+    <page id="bookStore_view_QueryLibPageDef1"
+          path="bookstore.ui.pages.QueryLibPageDef1"/>
+    <page id="bookStore_view_LibDashboardPageDef1"
+          path="bookstore.ui.pages.LibDashboardPageDef1"/>
+    <page id="bookStore_view_chartTempPageDef"
+          path="bookstore.ui.pages.chartTempPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="UserRegistrationAMDataControl"
+                     Package="bookStore.model.module"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                     SupportsTransactions="true" SupportsFindMode="true"
+                     SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true"
+                     Configuration="UserRegistrationAMLocal"
+                     syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+    <BC4JDataControl id="StudentChoresAMDataControl"
+                     Package="bookStore.model.module"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                     SupportsTransactions="true" SupportsFindMode="true"
+                     SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true"
+                     Configuration="StudentChoresAMLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+    <BC4JDataControl id="LibrarianChoresAMDataControl"
+                     Package="bookStore.model.module"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                     SupportsTransactions="true" SupportsFindMode="true"
+                     SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true"
+                     Configuration="LibrarianChoresAMLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

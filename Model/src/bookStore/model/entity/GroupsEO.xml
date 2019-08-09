@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="GroupsEO"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="GROUPS"
+  AliasName="GroupsEO"
+  BindingStyle="OracleName"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <AttrArray Name="_publishEvents"/>
+  </DesignTime>
+  <Attribute
+    Name="GName"
+    IsNotNull="true"
+    Precision="200"
+    ColumnName="G_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="GROUPS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="GDescription"
+    Precision="1000"
+    ColumnName="G_DESCRIPTION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="GROUPS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1000"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="Groupmembers"
+    Association="bookStore.model.asso.Fk1GroupmembersAssoc"
+    AssociationEnd="bookStore.model.asso.Fk1GroupmembersAssoc.Groupmembers"
+    AssociationOtherEnd="bookStore.model.asso.Fk1GroupmembersAssoc.Groups"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="PkGroups"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PK_GROUPS"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="bookStore.model.entity.GroupsEO.GName"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007381">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007381"/>
+      <Attr Name="_checkCondition" Value='"G_NAME" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="bookStore.model.entity.GroupsEO.GName"/>
+    </AttrArray>
+  </Key>
+</Entity>

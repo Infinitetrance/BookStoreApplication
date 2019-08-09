@@ -1,0 +1,243 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:panelStretchLayout id="psl1">
+          <f:facet name="center">
+            <af:panelCollection id="pc1">
+              <f:facet name="menus"/>
+              <f:facet name="toolbar">
+                <af:toolbar id="t2">
+                  <af:commandToolbarButton text="Create"
+                                           id="createCTB">
+                    <af:showPopupBehavior popupId="::createPopup"/>
+                  </af:commandToolbarButton>
+                  <af:commandToolbarButton text="Update/ ReOpen"
+                                           id="updateReopenCTB">
+                    <af:showPopupBehavior popupId="::updatePopup"/>
+                  </af:commandToolbarButton>
+                  <af:commandToolbarButton text="Delete"
+                                           id="deleteCTB"
+                                           disabled="#{bindings.Status ne 'OPEN'}"
+                                           partialTriggers="t1">
+                    <af:showPopupBehavior popupId="::deletePopup"/>
+                  </af:commandToolbarButton>
+                </af:toolbar>
+              </f:facet>
+              <f:facet name="statusbar"/>
+              <af:table value="#{bindings.QueryRecordVOInstance.collectionModel}"
+                        var="row"
+                        rows="#{bindings.QueryRecordVOInstance.rangeSize}"
+                        emptyText="#{bindings.QueryRecordVOInstance.viewable ? 'No data to display.' : 'Access Denied.'}"
+                        fetchSize="#{bindings.QueryRecordVOInstance.rangeSize}"
+                        rowBandingInterval="0" id="t1"
+                        binding="#{queryBean.queryRecord}"
+                        selectedRowKeys="#{bindings.QueryRecordVOInstance.collectionModel.selectedRow}"
+                        selectionListener="#{bindings.QueryRecordVOInstance.collectionModel.makeCurrent}"
+                        rowSelection="single" clientComponent="true">
+                <af:column sortProperty="#{bindings.QueryRecordVOInstance.hints.RecordId.name}"
+                           sortable="true"
+                           headerText="#{bindings.QueryRecordVOInstance.hints.RecordId.label}"
+                           id="c2">
+                  <af:outputText value="#{row.RecordId}" id="ot8"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.QueryRecordVOInstance.hints.Query.name}"
+                           sortable="true"
+                           headerText="#{bindings.QueryRecordVOInstance.hints.Query.label}"
+                           id="c3">
+                  <af:outputText value="#{row.Query}" id="ot3"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.QueryRecordVOInstance.hints.Fix.name}"
+                           sortable="true"
+                           headerText="#{bindings.QueryRecordVOInstance.hints.Fix.label}"
+                           id="c6">
+                  <af:outputText value="#{row.Fix}" id="ot9"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.QueryRecordVOInstance.hints.LoggedBy.name}"
+                           sortable="true"
+                           headerText="#{bindings.QueryRecordVOInstance.hints.LoggedBy.label}"
+                           id="c9">
+                  <af:outputText value="#{row.LoggedBy}" id="ot2"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.QueryRecordVOInstance.hints.LoggedOn.name}"
+                           sortable="true"
+                           headerText="#{bindings.QueryRecordVOInstance.hints.LoggedOn.label}"
+                           id="c8">
+                  <af:outputText value="#{row.LoggedOn}" id="ot6">
+                    <af:convertDateTime pattern="#{bindings.QueryRecordVOInstance.hints.LoggedOn.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.QueryRecordVOInstance.hints.ResolvedBy.name}"
+                           sortable="true"
+                           headerText="#{bindings.QueryRecordVOInstance.hints.ResolvedBy.label}"
+                           id="c5">
+                  <af:outputText value="#{row.ResolvedBy}" id="ot5"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.QueryRecordVOInstance.hints.ResolvedOn.name}"
+                           sortable="true"
+                           headerText="#{bindings.QueryRecordVOInstance.hints.ResolvedOn.label}"
+                           id="c4">
+                  <af:outputText value="#{row.ResolvedOn}" id="ot7">
+                    <af:convertDateTime pattern="#{bindings.QueryRecordVOInstance.hints.ResolvedOn.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.QueryRecordVOInstance.hints.Status.name}"
+                           sortable="true"
+                           headerText="#{bindings.QueryRecordVOInstance.hints.Status.label}"
+                           id="c1">
+                  <af:outputText value="#{row.Status}" id="ot4"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.QueryRecordVOInstance.hints.Seen.name}"
+                           sortable="true"
+                           headerText="#{bindings.QueryRecordVOInstance.hints.Seen.label}"
+                           id="c7">
+                  <af:outputText value="#{row.Seen}" id="ot1"/>
+                </af:column>
+              </af:table>
+            </af:panelCollection>
+          </f:facet>
+          <f:facet name="top">
+            <af:panelHeader text="Query Pannel" id="ph1">
+              <f:facet name="toolbar">
+                <af:toolbar id="t3">
+                  <af:commandToolbarButton text="Dashboard"
+                                           id="dashboardCTB"
+                                           action="dashboard"/>
+                </af:toolbar>
+              </f:facet>
+            </af:panelHeader>
+          </f:facet>
+        </af:panelStretchLayout>
+        <af:popup id="createPopup"
+                  popupCanceledListener="#{queryBean.cancelListener}"
+                  popupFetchListener="#{queryBean.newQueryPopupFetchListener}"
+                  contentDelivery="lazyUncached">
+          <af:dialog id="d2" title="New Query" closeIconVisible="false"
+                     dialogListener="#{queryBean.newQueryDialogListener}"
+                     type="okCancel"
+                     affirmativeTextAndAccessKey="&amp;Create "
+                     cancelTextAndAccessKey="Ca&amp;ncel">
+            <af:panelFormLayout id="pfl1">
+              <af:panelLabelAndMessage label="#{bindings.RecordId.hints.label}"
+                                       id="plam4">
+                <af:outputText value="#{bindings.RecordId.inputValue}"
+                               id="ot10">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.RecordId.format}"/>
+                </af:outputText>
+              </af:panelLabelAndMessage>
+              <af:panelGroupLayout id="pgl1" layout="horizontal"
+                                   halign="start">
+                <af:outputLabel value="#{bindings.Query.hints.label}" id="ol1"/>
+                <h:inputTextarea value="#{bindings.Query.inputValue}"
+                                 label="#{bindings.Query.hints.label}"
+                                 required="#{bindings.Query.hints.mandatory}"
+                                 id="it1" title="Query" cols="50" rows="6">
+                  <f:validator binding="#{bindings.Query.validator}"/>
+                </h:inputTextarea>
+                <f:facet name="separator">
+                  <af:separator id="s1"/>
+                </f:facet>
+              </af:panelGroupLayout>
+              <af:panelLabelAndMessage label="#{bindings.LoggedBy.hints.label}"
+                                       id="plam1">
+                <af:outputText value="#{bindings.LoggedBy.inputValue}"
+                               id="ot11"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.LoggedOn.hints.label}"
+                                       id="plam2">
+                <af:outputText value="#{bindings.LoggedOn.inputValue}"
+                               id="ot13">
+                  <af:convertDateTime pattern="#{bindings.LoggedOn.format}"/>
+                </af:outputText>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.Status.hints.label}"
+                                       id="plam3">
+                <af:outputText value="#{bindings.Status.inputValue}" id="ot12"/>
+              </af:panelLabelAndMessage>
+            </af:panelFormLayout>
+          </af:dialog>
+        </af:popup>
+        <af:popup id="updatePopup" contentDelivery="lazyUncached"
+                  popupCanceledListener="#{queryBean.cancelListener}"
+                  popupFetchListener="#{queryBean.updateQueryPopupFetchListener}">
+          <af:dialog id="d3" closeIconVisible="false"
+                     title="Update/ Re - Open Query"
+                     affirmativeTextAndAccessKey="&amp;Update/ Re - Open"
+                     cancelTextAndAccessKey="Ca&amp;ncel"
+                     dialogListener="#{queryBean.updateQueryDialogListener}">
+            <af:panelFormLayout id="pfl2">
+              <af:panelLabelAndMessage label="#{bindings.RecordId.hints.label}"
+                                       id="plam9">
+                <af:outputText value="#{bindings.RecordId.inputValue}"
+                               id="ot16"/>
+              </af:panelLabelAndMessage>
+              <af:panelGroupLayout id="pgl2" layout="horizontal">
+                <af:outputLabel value="#{bindings.Query.hints.label}" id="ol2"/>
+                <h:inputTextarea value="#{bindings.Query.inputValue}"
+                                 label="#{bindings.Query.hints.label}"
+                                 required="#{bindings.Query.hints.mandatory}"
+                                 id="it2" rows="6" cols="50">
+                  <f:validator binding="#{bindings.Query.validator}"/>
+                </h:inputTextarea>
+              </af:panelGroupLayout>
+              <af:panelLabelAndMessage label="#{bindings.Fix.hints.label}"
+                                       id="plam7">
+                <af:panelBorderLayout id="pbl1">
+                  <af:outputText value="#{bindings.Fix.inputValue}" id="ot19"
+                                 inlineStyle="width:450px;display:inline-block;word-wrap:break-word; color:Navy;"/>
+                </af:panelBorderLayout>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.LoggedBy.hints.label}"
+                                       id="plam8">
+                <af:outputText value="#{bindings.LoggedBy.inputValue}"
+                               id="ot14"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.LoggedOn.hints.label}"
+                                       id="plam5">
+                <af:outputText value="#{bindings.LoggedOn.inputValue}"
+                               id="ot15">
+                  <af:convertDateTime pattern="#{bindings.LoggedOn.format}"/>
+                </af:outputText>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.ResolvedBy.hints.label}"
+                                       id="plam10">
+                <af:outputText value="#{bindings.ResolvedBy.inputValue}"
+                               id="ot18"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.ResolvedOn.hints.label}"
+                                       id="panelLabelAndMessage1">
+                <af:outputText value="#{bindings.ResolvedOn.inputValue}"
+                               id="outputText1"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.Status.hints.label}"
+                                       id="plam6">
+                <af:outputText value="#{bindings.Status.inputValue}" id="ot17"/>
+              </af:panelLabelAndMessage>
+            </af:panelFormLayout>
+          </af:dialog>
+        </af:popup>
+        <af:popup id="deletePopup" contentDelivery="lazyUncached">
+          <af:dialog id="d4" affirmativeTextAndAccessKey="Delete"
+                     dialogListener="#{queryBean.deleteQueryDialogListener}"
+                     closeIconVisible="false">
+            <af:panelFormLayout id="pfl3">
+              <af:panelLabelAndMessage label="Do you want to delete #{bindings.RecordId.hints.label} "
+                                       id="plam11">
+                <af:outputText value="#{bindings.RecordId.inputValue} ?"
+                               id="ot20" inlineStyle="color:Background;"/>
+              </af:panelLabelAndMessage>
+            </af:panelFormLayout>
+          </af:dialog>
+        </af:popup>
+      </af:form>
+    </af:document>
+  </f:view>
+  <!--oracle-jdev-comment:preferred-managed-bean-name:queryBean-->
+</jsp:root>

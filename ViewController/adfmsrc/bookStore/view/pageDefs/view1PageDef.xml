@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="view1PageDef"
+                Package="bookStore.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="QueryRecord1" RangeSize="25"
+              DataControl="LibrarianChoresAMDataControl"
+              id="QueryRecord1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="QueryRecord1Iterator" id="QueryRecord1">
+      <nodeDefinition DefName="bookStore.model.view.QueryRecordVO"
+                      Name="QueryRecord10">
+        <AttrNames>
+          <Item Value="RecordId"/>
+          <Item Value="Query"/>
+          <Item Value="Fix"/>
+          <Item Value="LoggedBy"/>
+          <Item Value="LoggedOn"/>
+          <Item Value="ResolvedBy"/>
+          <Item Value="ResolvedOn"/>
+          <Item Value="Status"/>
+          <Item Value="Seen"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

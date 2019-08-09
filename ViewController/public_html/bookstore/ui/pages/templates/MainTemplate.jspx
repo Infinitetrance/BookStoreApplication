@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <af:pageTemplateDef var="attrs">
+    <af:xmlContent>
+      <component xmlns="http://xmlns.oracle.com/adf/faces/rich/component">
+        <display-name>MainTemplate</display-name>
+        <facet>
+          <facet-name>Left</facet-name>
+        </facet>
+        <facet>
+          <facet-name>Main</facet-name>
+        </facet>
+        <facet>
+          <facet-name>Toolbar</facet-name>
+        </facet>
+        <attribute>
+          <attribute-name>Title</attribute-name>
+          <attribute-class>java.lang.String</attribute-class>
+          <required>true</required>
+        </attribute>
+        <attribute>
+          <attribute-name>LeftSpliterPosition</attribute-name>
+          <attribute-class>java.lang.Integer</attribute-class>
+          <default-value>100</default-value>
+        </attribute>
+        <attribute>
+          <attribute-name>HideLeftSpliter</attribute-name>
+          <attribute-class>java.lang.Boolean</attribute-class>
+          <default-value>false</default-value>
+        </attribute>
+        <attribute>
+          <attribute-name>DisableLeftSpliter</attribute-name>
+          <attribute-class>java.lang.Boolean</attribute-class>
+          <default-value>false</default-value>
+        </attribute>
+      </component>
+    </af:xmlContent>
+    <af:panelStretchLayout topHeight="103px" id="CompletePagePSL">
+      <f:facet name="top">
+        <af:panelStretchLayout id="TopPSL" bottomHeight="37px">
+          <f:facet name="bottom">
+            <af:decorativeBox id="TitleDB" theme="medium">
+              <f:facet name="center">
+                <af:panelStretchLayout id="pt_psl1" endWidth="74px">
+                  <f:facet name="center">
+                    <af:outputText value="#{attrs.Title}" id="TitleOT"
+                                   inlineStyle="font-size:0.6cm;"/>
+                  </f:facet>
+                  <f:facet name="end">
+                    <af:facetRef facetName="Toolbar"/>
+                  </f:facet>
+                </af:panelStretchLayout>
+              </f:facet>
+            </af:decorativeBox>
+          </f:facet>
+          <f:facet name="center">
+            <af:decorativeBox id="HeaderDB" theme="dark">
+              <f:facet name="center">
+                <af:outputText value="The Book Store" id="pt_ot1"
+                               inlineStyle="font-size:1.2cm; text-align:center; vertical-align:top;"/>
+              </f:facet>
+            </af:decorativeBox>
+          </f:facet>
+        </af:panelStretchLayout>
+      </f:facet>
+      <f:facet name="center">
+        <!-- id="af_twocol_left_full_header_splitandscrolled"   -->
+        <af:panelSplitter orientation="horizontal"
+                          splitterPosition="#{attrs.LeftSpliterPosition}"
+                          id="pt_ps1" positionedFromEnd="false"
+                          rendered="true" collapsed="#{attrs.HideLeftSpliter}"
+                          disabled="#{attrs.DisableLeftSpliter}">
+          <f:facet name="first">
+            <af:facetRef facetName="Left"/>
+          </f:facet>
+          <f:facet name="second">
+            <af:facetRef facetName="Main"/>
+          </f:facet>
+        </af:panelSplitter>
+      </f:facet>
+    </af:panelStretchLayout>
+  </af:pageTemplateDef>
+</jsp:root>

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="IssueRecordsEO"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="ISSUE_RECORDS"
+  AliasName="IssueRecordsEO"
+  BindingStyle="OracleName"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <AttrArray Name="_publishEvents"/>
+  </DesignTime>
+  <Attribute
+    Name="RecordId"
+    Precision="15"
+    Scale="0"
+    ColumnName="RECORD_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.DBSequence"
+    ColumnType="NUMBER"
+    TableName="ISSUE_RECORDS"
+    PrimaryKey="true"
+    IsUpdateable="while_insert"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="16"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="UName"
+    IsNotNull="true"
+    Precision="60"
+    ColumnName="U_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ISSUE_RECORDS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="60"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="BookId"
+    IsNotNull="true"
+    Precision="15"
+    Scale="0"
+    ColumnName="BOOK_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="ISSUE_RECORDS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="16"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="IssueDate"
+    IsNotNull="true"
+    ColumnName="ISSUE_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="ISSUE_RECORDS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ReturnDate"
+    ColumnName="RETURN_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="ISSUE_RECORDS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="Books"
+    Association="bookStore.model.asso.FkBookIdIssueRecordsAssoc"
+    AssociationEnd="bookStore.model.asso.FkBookIdIssueRecordsAssoc.Books"
+    AssociationOtherEnd="bookStore.model.asso.FkBookIdIssueRecordsAssoc.IssueRecords"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Users"
+    Association="bookStore.model.asso.FkUNameIssueRecordsAssoc"
+    AssociationEnd="bookStore.model.asso.FkUNameIssueRecordsAssoc.Users"
+    AssociationOtherEnd="bookStore.model.asso.FkUNameIssueRecordsAssoc.IssueRecords"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Books1"
+    Association="bookStore.model.asso.FkBookIdIssueRecordsAssoc1"
+    AssociationEnd="bookStore.model.asso.FkBookIdIssueRecordsAssoc1.Books1"
+    AssociationOtherEnd="bookStore.model.asso.FkBookIdIssueRecordsAssoc1.IssueRecords1"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Books2"
+    Association="bookStore.model.asso.FkBookIdIssueRecordsAssoc2"
+    AssociationEnd="bookStore.model.asso.FkBookIdIssueRecordsAssoc2.Books2"
+    AssociationOtherEnd="bookStore.model.asso.FkBookIdIssueRecordsAssoc2.IssueRecords2"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Users1"
+    Association="bookStore.model.asso.FkUNameIssueRecordsAssoc1"
+    AssociationEnd="bookStore.model.asso.FkUNameIssueRecordsAssoc1.Users1"
+    AssociationOtherEnd="bookStore.model.asso.FkUNameIssueRecordsAssoc1.IssueRecords1"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="PkIssueRecords"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PK_ISSUE_RECORDS"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="bookStore.model.entity.IssueRecordsEO.RecordId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007394">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007394"/>
+      <Attr Name="_checkCondition" Value='"RECORD_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes"/>
+  </Key>
+  <Key
+    Name="SysC007395">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007395"/>
+      <Attr Name="_checkCondition" Value='"U_NAME" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="bookStore.model.entity.IssueRecordsEO.UName"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007396">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007396"/>
+      <Attr Name="_checkCondition" Value='"BOOK_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="bookStore.model.entity.IssueRecordsEO.BookId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007397">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007397"/>
+      <Attr Name="_checkCondition" Value='"ISSUE_DATE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="bookStore.model.entity.IssueRecordsEO.IssueDate"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkBookIdIssueRecords">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_BOOKS"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_BOOK_ID_ISSUE_RECORDS"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="bookStore.model.entity.IssueRecordsEO.BookId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkUNameIssueRecords">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_USERS"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_U_NAME_ISSUE_RECORDS"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="bookStore.model.entity.IssueRecordsEO.UName"/>
+    </AttrArray>
+  </Key>
+</Entity>

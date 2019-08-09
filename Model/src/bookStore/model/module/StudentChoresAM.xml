@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="StudentChoresAM"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  ComponentClass="bookStore.model.module.StudentChoresAMImpl"
+  ClearCacheOnRollback="true"
+  ComponentInterface="bookStore.model.module.common.StudentChoresAM"
+  ClientProxyName="bookStore.model.module.client.StudentChoresAMClient">
+  <DesignTime>
+    <Attr Name="_deployType" Value="0"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="bookStore.model.module.StudentChoresAM_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewUsage
+    Name="BooksTextualVOInstance"
+    ViewObjectName="bookStore.model.view.BooksTextualVO"/>
+  <ViewUsage
+    Name="IssueRecordVOInstance"
+    ViewObjectName="bookStore.model.view.IssueRecordVO"/>
+  <ViewUsage
+    Name="BooksVOInstance"
+    ViewObjectName="bookStore.model.view.BooksVO"/>
+  <ViewUsage
+    Name="UsersVOInstance"
+    ViewObjectName="bookStore.model.view.UsersVO"/>
+  <ViewUsage
+    Name="BooksReservedVOInstance"
+    ViewObjectName="bookStore.model.view.BooksReservedVO"/>
+  <ViewUsage
+    Name="QueryRecordVOInstance"
+    ViewObjectName="bookStore.model.view.QueryRecordVO"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="bookStore.model.ModelBundle"/>
+  </ResourceBundle>
+  <ClientInterface>
+    <Method
+      Name="applyVCForBooksTextualVO">
+      <Return
+        Type="void"/>
+      <Parameter
+        Name="bindVariableValue"
+        Type="java.lang.String"/>
+    </Method>
+    <Method
+      Name="applyVCForUsersVO">
+      <Return
+        Type="void"/>
+      <Parameter
+        Name="bindVariableValue"
+        Type="java.lang.String"/>
+    </Method>
+    <Method
+      Name="setBooksReservedVOBindVar">
+      <Return
+        Type="void"/>
+      <Parameter
+        Name="b_UName"
+        Type="java.lang.String"/>
+    </Method>
+    <Method
+      Name="applyVCForQueryRecordVO">
+      <Return
+        Type="void"/>
+      <Parameter
+        Name="b_UName"
+        Type="java.lang.String"/>
+    </Method>
+  </ClientInterface>
+</AppModule>

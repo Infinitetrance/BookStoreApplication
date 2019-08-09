@@ -1,0 +1,14 @@
+# Don't track content of these folders
+classes/
+temp/
+.settings/
+
+# Compiled source #
+###################
+*.class
+*.dll
+*.exe
+*.o
+
+# Some random file #
+~$reen snippets.docx 

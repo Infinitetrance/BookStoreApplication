@@ -1,0 +1,9 @@
+The following Synchronization Actions were performed successfully:
+
+Entity :QueryRecordEO
+  Create Attribute for column: STATUS
+  Create Attribute for column: SEEN
+  Create Key for Constraint: SYS_C007887
+  Create Key for Constraint: SYS_C007886
+  Create Key for Constraint: CHK_STATUS_QUERY_RECORD
+  Create Key for Constraint: CHK_SEEN_QUERY_RECORD

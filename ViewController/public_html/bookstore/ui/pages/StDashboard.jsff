@@ -1,0 +1,190 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:panelStretchLayout id="psl1" topHeight="28px">
+    <f:facet name="center">
+      <af:panelDashboard id="pd1" columns="2" rowHeight="570px">
+        <af:decorativeBox id="db1" topHeight="25px">
+          <f:facet name="center">
+            <af:table value="#{bindings.BooksReservedVOInstance.collectionModel}"
+                      var="row"
+                      rows="#{bindings.BooksReservedVOInstance.rangeSize}"
+                      emptyText="#{bindings.BooksReservedVOInstance.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      fetchSize="#{bindings.BooksReservedVOInstance.rangeSize}"
+                      rowBandingInterval="1"
+                      selectedRowKeys="#{bindings.BooksReservedVOInstance.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.BooksReservedVOInstance.collectionModel.makeCurrent}"
+                      rowSelection="single" id="t2"
+                      horizontalGridVisible="true" verticalGridVisible="true"
+                      columnStretching="column:c4">
+              <af:column sortProperty="#{bindings.BooksReservedVOInstance.hints.RecordId.name}"
+                         sortable="true" headerText="Reservation ID" id="c5"
+                         width="100">
+                <af:outputText value="#{row.RecordId}" id="ot4"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.BooksReservedVOInstance.hints.BookIdFromIssueRecord.name}"
+                         sortable="true" headerText="Book Id" id="c2"
+                         width="60">
+                <af:outputText value="#{row.BookIdFromIssueRecord}" id="ot2">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.BooksReservedVOInstance.hints.BookIdFromIssueRecord.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.BooksReservedVOInstance.hints.Title.name}"
+                         sortable="true"
+                         headerText="#{bindings.BooksReservedVOInstance.hints.Title.label}"
+                         id="c4" width="260">
+                <af:outputText value="#{row.Title}" id="ot8"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.BooksReservedVOInstance.hints.Status.name}"
+                         sortable="true"
+                         headerText="#{bindings.BooksReservedVOInstance.hints.Status.label}"
+                         id="c6" width="60">
+                <af:outputText value="#{row.Status}" id="ot6"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.BooksReservedVOInstance.hints.IssueDate.name}"
+                         sortable="true"
+                         headerText="#{bindings.BooksReservedVOInstance.hints.IssueDate.label}"
+                         id="c3">
+                <af:outputText value="#{row.IssueDate}" id="ot5">
+                  <af:convertDateTime pattern="#{bindings.BooksReservedVOInstance.hints.IssueDate.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.BooksReservedVOInstance.hints.ReturnDate.name}"
+                         sortable="true" headerText="When to return" id="c8">
+                <af:outputText value="#{stDashboard.returnDateFromIssueDate}" id="ot1"
+                               inlineStyle="color:#{stDashboard.returnDateColor};">
+                  <af:convertDateTime pattern="#{bindings.BooksReservedVOInstance.hints.ReturnDate.format}"/>
+                </af:outputText>
+              </af:column>
+            </af:table>
+          </f:facet>
+          <f:facet name="top">
+            <af:panelHeader text="   Books Reserved" id="ph2">
+              <f:facet name="context"/>
+              <f:facet name="menuBar"/>
+              <f:facet name="toolbar"/>
+              <f:facet name="legend"/>
+              <f:facet name="info"/>
+            </af:panelHeader>
+          </f:facet>
+        </af:decorativeBox>
+        <af:decorativeBox id="db2" theme="medium" topHeight="25px">
+          <f:facet name="center">
+            <af:table var="row" rowBandingInterval="1" id="t3"
+                      value="#{viewScope.notifications.notificationItems}"
+                      columnStretching="column:c7"
+                      horizontalGridVisible="false" verticalGridVisible="false" columnSelection="none">
+              <af:column sortable="false" id="c7">
+                <af:outputText value="#{row.notificationText}" id="ot3"/>
+              </af:column>
+              <af:column id="c1" width="25">
+                <af:commandImageLink
+                                     icon="/images/notificationOpenIcon.png" id="il1"
+                                     shortDesc="#{row.actionOutcome}"
+                                     action="#{row.getActionOutcome}"/>
+              </af:column>
+            </af:table>
+          </f:facet>
+          <f:facet name="top">
+            <af:panelHeader text="Notifications" id="ph3">
+              <f:facet name="context"/>
+              <f:facet name="menuBar"/>
+              <f:facet name="toolbar"/>
+              <f:facet name="legend"/>
+              <f:facet name="info"/>
+            </af:panelHeader>
+          </f:facet>
+        </af:decorativeBox>
+        <af:table value="#{bindings.QueryRecordVOInstance.collectionModel}"
+                  var="row" rows="#{bindings.QueryRecordVOInstance.rangeSize}"
+                  emptyText="#{bindings.QueryRecordVOInstance.viewable ? 'No data to display.' : 'Access Denied.'}"
+                  fetchSize="#{bindings.QueryRecordVOInstance.rangeSize}"
+                  rowBandingInterval="0"
+                  selectedRowKeys="#{bindings.QueryRecordVOInstance.collectionModel.selectedRow}"
+                  selectionListener="#{bindings.QueryRecordVOInstance.collectionModel.makeCurrent}"
+                  rowSelection="single" id="t4" rendered="false">
+          <af:column sortProperty="#{bindings.QueryRecordVOInstance.hints.RecordId.name}"
+                     sortable="false"
+                     headerText="#{bindings.QueryRecordVOInstance.hints.RecordId.label}"
+                     id="c12">
+            <af:outputText value="#{row.RecordId}" id="ot7"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.QueryRecordVOInstance.hints.Query.name}"
+                     sortable="false"
+                     headerText="#{bindings.QueryRecordVOInstance.hints.Query.label}"
+                     id="c9">
+            <af:outputText value="#{row.Query}" id="ot11"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.QueryRecordVOInstance.hints.Fix.name}"
+                     sortable="false"
+                     headerText="#{bindings.QueryRecordVOInstance.hints.Fix.label}"
+                     id="c15">
+            <af:outputText value="#{row.Fix}" id="ot13"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.QueryRecordVOInstance.hints.LoggedBy.name}"
+                     sortable="false"
+                     headerText="#{bindings.QueryRecordVOInstance.hints.LoggedBy.label}"
+                     id="c17">
+            <af:outputText value="#{row.LoggedBy}" id="ot14"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.QueryRecordVOInstance.hints.LoggedOn.name}"
+                     sortable="false"
+                     headerText="#{bindings.QueryRecordVOInstance.hints.LoggedOn.label}"
+                     id="c16">
+            <af:outputText value="#{row.LoggedOn}" id="ot15">
+              <af:convertDateTime pattern="#{bindings.QueryRecordVOInstance.hints.LoggedOn.format}"/>
+            </af:outputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.QueryRecordVOInstance.hints.ResolvedBy.name}"
+                     sortable="false"
+                     headerText="#{bindings.QueryRecordVOInstance.hints.ResolvedBy.label}"
+                     id="c13">
+            <af:outputText value="#{row.ResolvedBy}" id="ot12"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.QueryRecordVOInstance.hints.ResolvedOn.name}"
+                     sortable="false"
+                     headerText="#{bindings.QueryRecordVOInstance.hints.ResolvedOn.label}"
+                     id="c11">
+            <af:outputText value="#{row.ResolvedOn}" id="ot16">
+              <af:convertDateTime pattern="#{bindings.QueryRecordVOInstance.hints.ResolvedOn.format}"/>
+            </af:outputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.QueryRecordVOInstance.hints.Status.name}"
+                     sortable="false"
+                     headerText="#{bindings.QueryRecordVOInstance.hints.Status.label}"
+                     id="c14">
+            <af:outputText value="#{row.Status}" id="ot10"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.QueryRecordVOInstance.hints.Seen.name}"
+                     sortable="false"
+                     headerText="#{bindings.QueryRecordVOInstance.hints.Seen.label}"
+                     id="c10">
+            <af:outputText value="#{row.Seen}" id="ot9"/>
+          </af:column>
+        </af:table>
+      </af:panelDashboard>
+    </f:facet>
+    <f:facet name="top">
+      <af:panelHeader text="#{stDashboard.currentUser}'s Dashboard" id="ph1">
+        <f:facet name="context"/>
+        <f:facet name="menuBar"/>
+        <f:facet name="toolbar">
+          <af:toolbox id="t1">
+            <af:commandToolbarButton text="Search" id="searchCTB"
+                                     action="search"/>
+            <af:commandToolbarButton text="Query" id="queryCTB"
+                                     action="queries"/>
+            <af:commandToolbarButton text="Update Profile" id="updateProfileCTB"
+                                     actionListener="#{bindings.applyVCForUsersVO.execute}"
+                                     action="updateProfile"/>
+          </af:toolbox>
+        </f:facet>
+        <f:facet name="legend"/>
+        <f:facet name="info"/>
+      </af:panelHeader>
+    </f:facet>
+  </af:panelStretchLayout>
+</jsp:root>

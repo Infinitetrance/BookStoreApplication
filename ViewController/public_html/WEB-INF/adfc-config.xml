@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <view id="Login">
+    <page>/bookstore/ui/pages/Login.jspx</page>
+  </view>
+  <managed-bean id="__7">
+    <managed-bean-name id="__8">userRegistrationBean</managed-bean-name>
+    <managed-bean-class id="__6">bookStore.ui.beans.UserRegistrationBean</managed-bean-class>
+    <managed-bean-scope id="__9">request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__18">
+    <managed-bean-name id="__17">loginBean</managed-bean-name>
+    <managed-bean-class id="__15">bookStore.ui.beans.LoginBean</managed-bean-class>
+    <managed-bean-scope id="__16">request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__25">
+    <managed-bean-name id="__24">backingAuthorizationBasedRedirector</managed-bean-name>
+    <managed-bean-class id="__23">bookStore.ui.beans.AuthorizationBasedRedirector</managed-bean-class>
+    <managed-bean-scope id="__22">backingBean</managed-bean-scope>
+    <!--oracle-jdev-comment:managed-bean-jsp-link:1bookstore/ui/pages/AuthorizationBasedRedirector.jspx-->
+  </managed-bean>
+  <managed-bean id="__35">
+    <managed-bean-name id="__38">backingTemp</managed-bean-name>
+    <managed-bean-class id="__37">bookStore.ui.beans.Temp</managed-bean-class>
+    <managed-bean-scope id="__36">backingBean</managed-bean-scope>
+    <!--oracle-jdev-comment:managed-bean-jsp-link:1bookstore/ui/pages/temp.jspx-->
+  </managed-bean>
+  <managed-bean id="__19">
+    <managed-bean-name id="__26">searchBook</managed-bean-name>
+    <managed-bean-class id="__21">bookStore.ui.beans.SearchBook</managed-bean-class>
+    <managed-bean-scope id="__20">view</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__30">
+    <managed-bean-name id="__29">queryBean</managed-bean-name>
+    <managed-bean-class id="__28">bookStore.ui.beans.Query</managed-bean-class>
+    <managed-bean-scope id="__27">request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__32">
+    <managed-bean-name id="__34">stDashboard</managed-bean-name>
+    <managed-bean-class id="__33">bookStore.ui.beans.StDashboard</managed-bean-class>
+    <managed-bean-scope id="__31">request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__4">
+    <managed-bean-name id="__1">queryLib</managed-bean-name>
+    <managed-bean-class id="__3">bookStore.ui.beans.QueryLib</managed-bean-class>
+    <managed-bean-scope id="__2">request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__10">
+    <managed-bean-name id="__5">submitBook</managed-bean-name>
+    <managed-bean-class id="__12">bookStore.ui.beans.SubmitBook</managed-bean-class>
+    <managed-bean-scope id="__11">request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__14">
+    <managed-bean-name id="__13">libDashboard</managed-bean-name>
+    <managed-bean-class id="__40">bookStore.ui.beans.LibDashboard</managed-bean-class>
+    <managed-bean-scope id="__39">view</managed-bean-scope>
+  </managed-bean>
+</adfc-config>

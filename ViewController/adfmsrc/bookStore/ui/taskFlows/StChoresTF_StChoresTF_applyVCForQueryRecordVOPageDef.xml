@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73"
+                id="StChoresTF_StChoresTF_applyVCForQueryRecordVOPageDef"
+                Package="bookstore.ui.taskFlows" SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <methodAction id="applyVCForQueryRecordVO" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="applyVCForQueryRecordVO"
+                  IsViewObjectMethod="false"
+                  DataControl="StudentChoresAMDataControl"
+                  InstanceName="StudentChoresAMDataControl.dataProvider">
+      <NamedData NDName="b_UName" NDValue="#{stDashboard.currentUser}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="QueryPageDef1"
+                Package="bookstore.ui.pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="QueryRecordVOInstance" RangeSize="25"
+              DataControl="StudentChoresAMDataControl"
+              id="QueryRecordVOInstanceIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="QueryRecordVOInstanceIterator"
+          id="QueryRecordVOInstance">
+      <nodeDefinition DefName="bookStore.model.view.QueryRecordVO"
+                      Name="QueryRecordVOInstance0">
+        <AttrNames>
+          <Item Value="RecordId"/>
+          <Item Value="Query"/>
+          <Item Value="Fix"/>
+          <Item Value="LoggedBy"/>
+          <Item Value="LoggedOn"/>
+          <Item Value="ResolvedBy"/>
+          <Item Value="ResolvedOn"/>
+          <Item Value="Status"/>
+          <Item Value="Seen"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="QueryRecordVOInstanceIterator" id="RecordId">
+      <AttrNames>
+        <Item Value="RecordId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="QueryRecordVOInstanceIterator" id="Query">
+      <AttrNames>
+        <Item Value="Query"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="QueryRecordVOInstanceIterator" id="LoggedBy">
+      <AttrNames>
+        <Item Value="LoggedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="QueryRecordVOInstanceIterator" id="LoggedOn">
+      <AttrNames>
+        <Item Value="LoggedOn"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="QueryRecordVOInstanceIterator" id="Status">
+      <AttrNames>
+        <Item Value="Status"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" DataControl="StudentChoresAMDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action id="Rollback" DataControl="StudentChoresAMDataControl"
+            RequiresUpdateModel="false" Action="rollbackTransaction"/>
+    <action IterBinding="QueryRecordVOInstanceIterator" id="CreateInsert"
+            InstanceName="StudentChoresAMDataControl.QueryRecordVOInstance"
+            DataControl="StudentChoresAMDataControl" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <attributeValues IterBinding="QueryRecordVOInstanceIterator" id="Seen">
+      <AttrNames>
+        <Item Value="Seen"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="QueryRecordVOInstanceIterator" id="Fix">
+      <AttrNames>
+        <Item Value="Fix"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="QueryRecordVOInstanceIterator"
+                     id="ResolvedBy">
+      <AttrNames>
+        <Item Value="ResolvedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="QueryRecordVOInstanceIterator"
+                     id="ResolvedOn">
+      <AttrNames>
+        <Item Value="ResolvedOn"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="QueryRecordVOInstanceIterator" id="Delete"
+            InstanceName="StudentChoresAMDataControl.QueryRecordVOInstance"
+            DataControl="StudentChoresAMDataControl" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="QueryLibPageDef1"
+                Package="bookstore.ui.pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="QueryRecord1" RangeSize="25"
+              DataControl="LibrarianChoresAMDataControl"
+              id="QueryRecord1Iterator"/>
+    <searchRegion Binds="QueryRecord1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="QueryRecord1Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="QueryRecord1Iterator" id="QueryRecord1">
+      <nodeDefinition DefName="bookStore.model.view.QueryRecordVO"
+                      Name="QueryRecord10">
+        <AttrNames>
+          <Item Value="RecordId"/>
+          <Item Value="Query"/>
+          <Item Value="Fix"/>
+          <Item Value="LoggedBy"/>
+          <Item Value="LoggedOn"/>
+          <Item Value="ResolvedBy"/>
+          <Item Value="ResolvedOn"/>
+          <Item Value="Status"/>
+          <Item Value="Seen"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="QueryRecord1Iterator" id="RecordId">
+      <AttrNames>
+        <Item Value="RecordId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="QueryRecord1Iterator" id="Query">
+      <AttrNames>
+        <Item Value="Query"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="QueryRecord1Iterator" id="Fix">
+      <AttrNames>
+        <Item Value="Fix"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="QueryRecord1Iterator" id="LoggedBy">
+      <AttrNames>
+        <Item Value="LoggedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="QueryRecord1Iterator" id="LoggedOn">
+      <AttrNames>
+        <Item Value="LoggedOn"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="QueryRecord1Iterator" id="ResolvedBy">
+      <AttrNames>
+        <Item Value="ResolvedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="QueryRecord1Iterator" id="ResolvedOn">
+      <AttrNames>
+        <Item Value="ResolvedOn"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="QueryRecord1Iterator" StaticList="false"
+          Uses="LOV_Status" id="Status" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="QueryRecord1Iterator" id="Seen">
+      <AttrNames>
+        <Item Value="Seen"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="applyQueryRecordByStatusVOCriteria"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="applyQueryRecordByStatusVOCriteria"
+                  IsViewObjectMethod="false"
+                  DataControl="LibrarianChoresAMDataControl"
+                  InstanceName="LibrarianChoresAMDataControl.dataProvider">
+      <NamedData NDName="b_Status" NDValue="#{requestScope.r_Status}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+    <action id="Commit" DataControl="LibrarianChoresAMDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action id="Rollback" DataControl="LibrarianChoresAMDataControl"
+            RequiresUpdateModel="false" Action="rollbackTransaction"/>
+  </bindings>
+</pageDefinition>

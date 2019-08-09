@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <dvt:pieChart id="pieChart1" var="row"
+                      value="#{bindings.QueryRecordStatusPieView1.collectionModel}"
+                      threeDEffect="on" title="Query Status "
+                      footnote="this is footnote">
+          <dvt:chartLegend id="cl1"/>
+          <dvt:pieDataItem id="di1" value="#{row.NoOfQueries}"
+                           label="#{row.Status}"/>
+        </dvt:pieChart>
+        <dvt:barChart id="barChart1" var="row"
+                      value="#{bindings.IssueRecordReserveFrequencyView1.collectionModel}"
+                      title="Book reserve frequency "
+                      subtitle="reserve frequency "
+                      footnote="this is reserve frequency  chart "
+                      zoomAndScroll="live">
+          <dvt:chartLegend id="cl2"/>
+          <f:facet name="dataStamp">
+            <dvt:chartDataItem id="di2" value="#{row.ReserveFrequency}"
+                               group="#{row.BookId}"
+                               series="#{bindings.IssueRecordReserveFrequencyView1.hints.ReserveFrequency.label}"/>
+          </f:facet>
+        </dvt:barChart>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

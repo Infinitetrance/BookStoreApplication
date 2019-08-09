@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="LibChoresTF">
+    <default-activity id="__1">LibDashboard</default-activity>
+    <managed-bean id="__2">
+      <managed-bean-name id="__5">libDashboard</managed-bean-name>
+      <managed-bean-class id="__3">bookStore.ui.beans.LibDashboard</managed-bean-class>
+      <managed-bean-scope id="__4">view</managed-bean-scope>
+    </managed-bean>
+    <view id="LibDashboard">
+      <page>/bookstore/ui/pages/LibDashboard.jsff</page>
+    </view>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

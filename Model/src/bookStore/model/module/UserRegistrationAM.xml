@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="UserRegistrationAM"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  ClearCacheOnRollback="true"
+  ComponentClass="bookStore.model.module.UserRegistrationAMImpl"
+  ComponentInterface="bookStore.model.module.common.UserRegistrationAM"
+  ClientProxyName="bookStore.model.module.client.UserRegistrationAMClient">
+  <DesignTime>
+    <Attr Name="_deployType" Value="0"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="bookStore.model.module.UserRegistrationAM_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewUsage
+    Name="GroupMembers1"
+    ViewObjectName="bookStore.model.view.GroupMembersVO"/>
+  <ViewUsage
+    Name="Users1"
+    ViewObjectName="bookStore.model.view.UsersVO"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="bookStore.model.ModelBundle"/>
+  </ResourceBundle>
+  <ClientInterface>
+    <Method
+      Name="getNextDBSequence">
+      <Return
+        Type="oracle.jbo.domain.DBSequence"/>
+    </Method>
+  </ClientInterface>
+</AppModule>

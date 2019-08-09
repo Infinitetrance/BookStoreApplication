@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="QueryRecordEO"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="QUERY_RECORD"
+  AliasName="QueryRecordEO"
+  BindingStyle="OracleName"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <AttrArray Name="_publishEvents"/>
+  </DesignTime>
+  <Attribute
+    Name="RecordId"
+    Precision="15"
+    Scale="0"
+    ColumnName="RECORD_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.DBSequence"
+    ColumnType="NUMBER"
+    TableName="QUERY_RECORD"
+    PrimaryKey="true"
+    IsUpdateable="while_insert"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="16"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LoggedBy"
+    IsNotNull="true"
+    Precision="60"
+    ColumnName="LOGGED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="QUERY_RECORD">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="60"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ResolvedBy"
+    Precision="60"
+    ColumnName="RESOLVED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="QUERY_RECORD">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="60"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Query"
+    IsNotNull="true"
+    Precision="600"
+    ColumnName="QUERY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="QUERY_RECORD">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="600"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Fix"
+    Precision="600"
+    ColumnName="FIX"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="QUERY_RECORD">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="600"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LoggedOn"
+    IsNotNull="true"
+    ColumnName="LOGGED_ON"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="QUERY_RECORD">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ResolvedOn"
+    ColumnName="RESOLVED_ON"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="QUERY_RECORD">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Status"
+    IsNotNull="true"
+    Precision="8"
+    ColumnName="STATUS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="QUERY_RECORD">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="8"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Seen"
+    IsNotNull="true"
+    Precision="2"
+    ColumnName="SEEN"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="QUERY_RECORD">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="Users2"
+    Association="bookStore.model.asso.FkLoggedByQueryRecordAssoc1"
+    AssociationEnd="bookStore.model.asso.FkLoggedByQueryRecordAssoc1.Users2"
+    AssociationOtherEnd="bookStore.model.asso.FkLoggedByQueryRecordAssoc1.QueryRecord2"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Users3"
+    Association="bookStore.model.asso.FkResolvedByQueryRecordAssoc1"
+    AssociationEnd="bookStore.model.asso.FkResolvedByQueryRecordAssoc1.Users3"
+    AssociationOtherEnd="bookStore.model.asso.FkResolvedByQueryRecordAssoc1.QueryRecord3"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Users"
+    Association="bookStore.model.asso.FkResolvedByQueryRecordAssoc"
+    AssociationEnd="bookStore.model.asso.FkResolvedByQueryRecordAssoc.Users"
+    AssociationOtherEnd="bookStore.model.asso.FkResolvedByQueryRecordAssoc.QueryRecord"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Users1"
+    Association="bookStore.model.asso.FkLoggedByQueryRecordAssoc"
+    AssociationEnd="bookStore.model.asso.FkLoggedByQueryRecordAssoc.Users1"
+    AssociationOtherEnd="bookStore.model.asso.FkLoggedByQueryRecordAssoc.QueryRecord1"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="ChkSeenQueryRecord">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="CHK_SEEN_QUERY_RECORD"/>
+      <Attr Name="_checkCondition" Value="SEEN IN ('10','01', '11' )"/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="bookStore.model.entity.QueryRecordEO.Seen"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="ChkStatusQueryRecord">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="CHK_STATUS_QUERY_RECORD"/>
+      <Attr Name="_checkCondition"
+        Value="STATUS IN ('OPEN', 'RESOLVED', 'REOPEND')"/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="bookStore.model.entity.QueryRecordEO.Status"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="PkQueryRecord"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PK_QUERY_RECORD"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="bookStore.model.entity.QueryRecordEO.RecordId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007401">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007401"/>
+      <Attr Name="_checkCondition" Value='"RECORD_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes"/>
+  </Key>
+  <Key
+    Name="SysC007402">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007402"/>
+      <Attr Name="_checkCondition" Value='"LOGGED_BY" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="bookStore.model.entity.QueryRecordEO.LoggedBy"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007403">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007403"/>
+      <Attr Name="_checkCondition" Value='"QUERY" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="bookStore.model.entity.QueryRecordEO.Query"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007404">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007404"/>
+      <Attr Name="_checkCondition" Value='"LOGGED_ON" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="bookStore.model.entity.QueryRecordEO.LoggedOn"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007886">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007886"/>
+      <Attr Name="_checkCondition" Value='"STATUS" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="bookStore.model.entity.QueryRecordEO.Status"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007887">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007887"/>
+      <Attr Name="_checkCondition" Value='"SEEN" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="bookStore.model.entity.QueryRecordEO.Seen"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkLoggedByQueryRecord">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_USERS"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_LOGGED_BY_QUERY_RECORD"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="bookStore.model.entity.QueryRecordEO.LoggedBy"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkResolvedByQueryRecord">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_USERS"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_RESOLVED_BY_QUERY_RECORD"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="bookStore.model.entity.QueryRecordEO.ResolvedBy"/>
+    </AttrArray>
+  </Key>
+</Entity>

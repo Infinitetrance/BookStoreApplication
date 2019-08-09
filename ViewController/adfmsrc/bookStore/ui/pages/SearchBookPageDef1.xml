@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="SearchBookPageDef1"
+                Package="bookstore.ui.pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables">
+      <variable Type="java.lang.String"
+                Name="applyVCForBooksTextualVO_bindVariableValue"
+                IsQueriable="false"/>
+    </variableIterator>
+    <iterator Binds="BooksTextualVOInstance" RangeSize="25"
+              DataControl="StudentChoresAMDataControl"
+              id="BooksTextualVOInstanceIterator"
+              RefreshCondition="#{viewScope.searchBook.refreshCond}"/>
+    <searchRegion Binds="BooksTextualVOInstanceIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="BooksTextualVOInstanceQuery"/>
+  </executables>
+  <bindings>
+    <methodAction id="applyVCForBooksTextualVO" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="applyVCForBooksTextualVO"
+                  IsViewObjectMethod="false"
+                  DataControl="StudentChoresAMDataControl"
+                  InstanceName="StudentChoresAMDataControl.dataProvider">
+      <NamedData NDName="bindVariableValue" NDType="java.lang.String"
+                 NDValue="${bindings.applyVCForBooksTextualVO_bindVariableValue}"/>
+    </methodAction>
+    <attributeValues IterBinding="variables" id="bindVariableValue">
+      <AttrNames>
+        <Item Value="applyVCForBooksTextualVO_bindVariableValue"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="BooksTextualVOInstanceIterator"
+          id="BooksTextualVOInstance">
+      <nodeDefinition DefName="bookStore.model.view.BooksTextualVO"
+                      Name="BooksTextualVOInstance0">
+        <AttrNames>
+          <Item Value="BookId"/>
+          <Item Value="Title"/>
+          <Item Value="Author"/>
+          <Item Value="ParentCategory"/>
+          <Item Value="Category"/>
+          <Item Value="Status"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="BooksTextualVOInstanceIterator" id="BookId">
+      <AttrNames>
+        <Item Value="BookId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BooksTextualVOInstanceIterator" id="Title">
+      <AttrNames>
+        <Item Value="Title"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BooksTextualVOInstanceIterator" id="Author">
+      <AttrNames>
+        <Item Value="Author"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BooksTextualVOInstanceIterator"
+                     id="ParentCategory">
+      <AttrNames>
+        <Item Value="ParentCategory"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BooksTextualVOInstanceIterator" id="Category">
+      <AttrNames>
+        <Item Value="Category"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BooksTextualVOInstanceIterator" id="Status">
+      <AttrNames>
+        <Item Value="Status"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BooksTextualVOInstanceIterator"
+                     id="Description">
+      <AttrNames>
+        <Item Value="Description"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="refreshBooksTextualVO" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="refreshBooksTextualVO"
+                  IsViewObjectMethod="false"
+                  DataControl="StudentChoresAMDataControl"
+                  InstanceName="StudentChoresAMDataControl.dataProvider"/>
+  </bindings>
+</pageDefinition>

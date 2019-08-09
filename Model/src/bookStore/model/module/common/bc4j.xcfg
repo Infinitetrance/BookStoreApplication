@@ -1,0 +1,36 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="bookStore.model.module.UserRegistrationAM">
+      <AppModuleConfig name="UserRegistrationAMLocal" ApplicationName="bookStore.model.module.UserRegistrationAM" DeployPlatform="LOCAL" jbo.project="bookStore.model.Model">
+         <Security AppModuleJndiName="bookStore.model.module.UserRegistrationAM"/>
+         <Custom JDBCDataSource="java:comp/env/jdbc/pdb_bookStoreDS"/>
+      </AppModuleConfig>
+      <AppModuleConfig name="UserRegistrationAMShared" ApplicationName="bookStore.model.module.UserRegistrationAM" DeployPlatform="LOCAL" jbo.project="bookStore.model.Model">
+         <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+         <Security AppModuleJndiName="bookStore.model.module.UserRegistrationAM"/>
+         <Custom JDBCDataSource="java:comp/env/jdbc/pdb_bookStoreDS"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+   <AppModuleConfigBag ApplicationName="bookStore.model.module.StudentChoresAM">
+      <AppModuleConfig name="StudentChoresAMLocal" ApplicationName="bookStore.model.module.StudentChoresAM" DeployPlatform="LOCAL" jbo.project="bookStore.model.Model">
+         <Security AppModuleJndiName="bookStore.model.module.StudentChoresAM"/>
+         <Custom JDBCDataSource="java:comp/env/jdbc/pdb_bookStoreDS"/>
+      </AppModuleConfig>
+      <AppModuleConfig name="StudentChoresAMShared" ApplicationName="bookStore.model.module.StudentChoresAM" DeployPlatform="LOCAL" jbo.project="bookStore.model.Model">
+         <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+         <Security AppModuleJndiName="bookStore.model.module.StudentChoresAM"/>
+         <Custom JDBCDataSource="java:comp/env/jdbc/pdb_bookStoreDS"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+   <AppModuleConfigBag ApplicationName="bookStore.model.module.LibrarianChoresAM">
+      <AppModuleConfig name="LibrarianChoresAMLocal" ApplicationName="bookStore.model.module.LibrarianChoresAM" DeployPlatform="LOCAL" jbo.project="bookStore.model.Model">
+         <Security AppModuleJndiName="bookStore.model.module.LibrarianChoresAM"/>
+         <Custom JDBCDataSource="java:comp/env/jdbc/pdb_bookStoreDS"/>
+      </AppModuleConfig>
+      <AppModuleConfig name="LibrarianChoresAMShared" ApplicationName="bookStore.model.module.LibrarianChoresAM" DeployPlatform="LOCAL" jbo.project="bookStore.model.Model">
+         <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+         <Security AppModuleJndiName="bookStore.model.module.LibrarianChoresAM"/>
+         <Custom JDBCDataSource="java:comp/env/jdbc/pdb_bookStoreDS"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

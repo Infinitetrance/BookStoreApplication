@@ -1,0 +1,16 @@
+The following Synchronization Actions were performed successfully:
+
+Entity :UsersEO
+  Attribute :Gender
+    Change Column type to VARCHAR2
+  Attribute :UserId
+    Change Mandatory to:true
+    Change Primary Key to:false
+  Key :SysC007374
+    Add attribute to key for column USER_ID
+  Key :PkUsers
+    Remove key attribute UserId
+  Key :ChkUserTypeCodeUsers
+    Change Check Constraint Condition to:USER_TYPE_CODE IN ('BS_E_STUDENT','BS_E_LIBRARIAN','BS_E_ADMINISTRATOR')
+  Remove Key Constraint: SysC007376
+  Create Key for Constraint: SYS_C007947

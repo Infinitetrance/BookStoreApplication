@@ -1,0 +1,7 @@
+The following Synchronization Actions were performed successfully:
+
+Entity :BooksTextualEO
+  Attribute :BookId
+    Change Primary Key to:false
+  Create Attribute for column: DESCRIPTION
+  Remove Key Constraint: BookstextualeoPrimaryKey

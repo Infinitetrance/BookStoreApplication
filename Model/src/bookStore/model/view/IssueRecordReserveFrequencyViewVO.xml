@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="IssueRecordReserveFrequencyViewVO"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  SelectList="IssueRecordReserveFrequencyV1.BOOK_ID, 
+       IssueRecordReserveFrequencyV1.RESERVE_FREQUENCY"
+  FromList="ISSUE_RECORD_RESERVE_FREQUENCY_VIEW IssueRecordReserveFrequencyV1"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="bookStore.model.view.IssueRecordReserveFrequencyViewVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <EntityUsage
+    Name="IssueRecordReserveFrequencyV1"
+    Entity="bookStore.model.entity.IssueRecordReserveFrequencyViewEO"
+    ReadOnly="true"
+    DeleteParticipant="false"/>
+  <ViewAttribute
+    Name="BookId"
+    IsUpdateable="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="BookId"
+    EntityUsage="IssueRecordReserveFrequencyV1"
+    AliasName="BOOK_ID"/>
+  <ViewAttribute
+    Name="ReserveFrequency"
+    PrecisionRule="true"
+    EntityAttrName="ReserveFrequency"
+    EntityUsage="IssueRecordReserveFrequencyV1"
+    AliasName="RESERVE_FREQUENCY"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="bookStore.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

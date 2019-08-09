@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="StChoresTF">
+    <default-activity id="__48">setBooksReservedVOBindVar</default-activity>
+    <managed-bean id="__19">
+      <managed-bean-name id="__18">searchBook</managed-bean-name>
+      <managed-bean-class id="__21">bookStore.ui.beans.SearchBook</managed-bean-class>
+      <managed-bean-scope id="__20">view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__22">
+      <managed-bean-name id="__25">queryBean</managed-bean-name>
+      <managed-bean-class id="__23">bookStore.ui.beans.Query</managed-bean-class>
+      <managed-bean-scope id="__24">request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__29">
+      <managed-bean-name id="__28">userRegistrationBean</managed-bean-name>
+      <managed-bean-class id="__26">bookStore.ui.beans.UserRegistrationBean</managed-bean-class>
+      <managed-bean-scope id="__27">request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__31">
+      <managed-bean-name id="__33">stDashboard</managed-bean-name>
+      <managed-bean-class id="__32">bookStore.ui.beans.StDashboard</managed-bean-class>
+      <managed-bean-scope id="__30">request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__39">
+      <managed-bean-name id="__40">updateStudent</managed-bean-name>
+      <managed-bean-class id="__37">bookStore.ui.beans.UpdateStudent</managed-bean-class>
+      <managed-bean-scope id="__38">request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__47">
+      <managed-bean-name id="__41">notifications</managed-bean-name>
+      <managed-bean-class id="__46">bookStore.ui.beans.Notifications</managed-bean-class>
+      <managed-bean-scope id="__42">view</managed-bean-scope>
+    </managed-bean>
+    <view id="Dashboard">
+      <page>/bookstore/ui/pages/StDashboard.jsff</page>
+    </view>
+    <view id="Query">
+      <page>/bookstore/ui/pages/Query.jsff</page>
+    </view>
+    <view id="Search">
+      <page>/bookstore/ui/pages/SearchBook.jsff</page>
+    </view>
+    <view id="UpdateProfile">
+      <page>/bookstore/ui/pages/UpdateStudent.jsff</page>
+    </view>
+    <method-call id="setBooksReservedVOBindVar">
+      <method>#{bindings.setBooksReservedVOBindVar.execute}</method>
+      <outcome id="__3">
+        <fixed-outcome>setBooksReservedVOBindVar</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="applyVCForQueryRecordVO">
+      <method>#{bindings.applyVCForQueryRecordVO.execute}</method>
+      <outcome id="__49">
+        <fixed-outcome>applyVCForQueryRecordVO</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__4">
+      <from-activity-id id="__5">Dashboard</from-activity-id>
+      <control-flow-case id="__6">
+        <from-outcome id="__8">search</from-outcome>
+        <to-activity-id id="__7">Search</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__12">
+        <from-outcome id="__14">updateProfile</from-outcome>
+        <to-activity-id id="__13">UpdateProfile</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__51">
+        <from-outcome id="__52">queries</from-outcome>
+        <to-activity-id id="__50">applyVCForQueryRecordVO</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__2">
+      <from-activity-id id="__1">*</from-activity-id>
+      <control-flow-case id="__16">
+        <from-outcome id="__17">dashboard</from-outcome>
+        <to-activity-id id="__15">setBooksReservedVOBindVar</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__34">
+      <from-activity-id id="__35">setBooksReservedVOBindVar</from-activity-id>
+      <control-flow-case id="__45">
+        <from-outcome id="__36">setBooksReservedVOBindVar</from-outcome>
+        <to-activity-id id="__44">Dashboard</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__53">
+      <from-activity-id id="__54">applyVCForQueryRecordVO</from-activity-id>
+      <control-flow-case id="__57">
+        <from-outcome id="__56">applyVCForQueryRecordVO</from-outcome>
+        <to-activity-id id="__55">Query</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+    <visibility id="__43">
+      <url-invoke-allowed/>
+    </visibility>
+  </task-flow-definition>
+</adfc-config>

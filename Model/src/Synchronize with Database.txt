@@ -1,0 +1,9 @@
+The following Synchronization Actions were performed successfully:
+
+Entity :BooksEO
+  Attribute :Category
+    Change Column type to NUMBER
+    Change Precision, Scale  to (15, 0)
+  Create Attribute for column: PARENT_CATEGORY
+  Create Key for Constraint: FK_PARENT_CATEGORY_BOOKS
+  Create Key for Constraint: FK_CATEGORY_BOOKS

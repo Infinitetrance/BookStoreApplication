@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="chartTempPageDef"
+                Package="bookstore.ui.pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="QueryRecordStatusPieView1" RangeSize="-1"
+              DataControl="LibrarianChoresAMDataControl"
+              id="QueryRecordStatusPieView1Iterator"/>
+    <iterator Binds="IssueRecordReserveFrequencyView1" RangeSize="-1"
+              DataControl="LibrarianChoresAMDataControl"
+              id="IssueRecordReserveFrequencyView1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="QueryRecordStatusPieView1Iterator"
+          id="QueryRecordStatusPieView1" ChangeEventPolicy="ppr">
+      <nodeDefinition DefName="bookStore.model.view.QueryRecordStatusPieViewVO"
+                      Name="QueryRecordStatusPieView1">
+        <AttrNames>
+          <Item Value="NoOfQueries"/>
+          <Item Value="Status"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="IssueRecordReserveFrequencyView1Iterator"
+          id="IssueRecordReserveFrequencyView1" ChangeEventPolicy="ppr">
+      <nodeDefinition DefName="bookStore.model.view.IssueRecordReserveFrequencyViewVO"
+                      Name="IssueRecordReserveFrequencyView1">
+        <AttrNames>
+          <Item Value="ReserveFrequency"/>
+          <Item Value="BookId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="UsersEO"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="USERS"
+  AliasName="UsersEO"
+  BindingStyle="OracleName"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <AttrArray Name="_publishEvents"/>
+  </DesignTime>
+  <Attribute
+    Name="UName"
+    IsNotNull="true"
+    Precision="60"
+    ColumnName="U_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="USERS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="60"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="UPassword"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="U_PASSWORD"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="USERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="UDescription"
+    Precision="600"
+    ColumnName="U_DESCRIPTION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="USERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="600"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="UserId"
+    Precision="15"
+    Scale="0"
+    ColumnName="USER_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.DBSequence"
+    ColumnType="NUMBER"
+    TableName="USERS"
+    IsUpdateable="while_insert"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="16"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="FirstName"
+    IsNotNull="true"
+    Precision="30"
+    ColumnName="FIRST_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="USERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastName"
+    Precision="30"
+    ColumnName="LAST_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="USERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Gender"
+    IsNotNull="true"
+    Precision="2"
+    ColumnName="GENDER"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="USERS"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Email"
+    IsNotNull="true"
+    Precision="50"
+    ColumnName="EMAIL"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="USERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="UserTypeCode"
+    IsNotNull="true"
+    Precision="30"
+    ColumnName="USER_TYPE_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="USERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AddressStreet"
+    Precision="40"
+    ColumnName="ADDRESS_STREET"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="USERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="40"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AddressCity"
+    Precision="40"
+    ColumnName="ADDRESS_CITY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="USERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="40"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AddressState"
+    Precision="40"
+    ColumnName="ADDRESS_STATE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="USERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="40"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AddressPostalCode"
+    Precision="6"
+    Scale="0"
+    ColumnName="ADDRESS_POSTAL_CODE"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="USERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AddressCountryCode"
+    Precision="2"
+    ColumnName="ADDRESS_COUNTRY_CODE"
+    SQLType="CHAR"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    TableName="USERS"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="MobilePhoneNumber"
+    Precision="10"
+    Scale="0"
+    ColumnName="MOBILE_PHONE_NUMBER"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="USERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="Groupmembers"
+    Association="bookStore.model.asso.Fk2GroupmembersAssoc"
+    AssociationEnd="bookStore.model.asso.Fk2GroupmembersAssoc.Groupmembers"
+    AssociationOtherEnd="bookStore.model.asso.Fk2GroupmembersAssoc.Users"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="IssueRecords"
+    Association="bookStore.model.asso.FkUNameIssueRecordsAssoc"
+    AssociationEnd="bookStore.model.asso.FkUNameIssueRecordsAssoc.IssueRecords"
+    AssociationOtherEnd="bookStore.model.asso.FkUNameIssueRecordsAssoc.Users"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="QueryRecord2"
+    Association="bookStore.model.asso.FkLoggedByQueryRecordAssoc1"
+    AssociationEnd="bookStore.model.asso.FkLoggedByQueryRecordAssoc1.QueryRecord2"
+    AssociationOtherEnd="bookStore.model.asso.FkLoggedByQueryRecordAssoc1.Users2"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="QueryRecord3"
+    Association="bookStore.model.asso.FkResolvedByQueryRecordAssoc1"
+    AssociationEnd="bookStore.model.asso.FkResolvedByQueryRecordAssoc1.QueryRecord3"
+    AssociationOtherEnd="bookStore.model.asso.FkResolvedByQueryRecordAssoc1.Users3"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="QueryRecord"
+    Association="bookStore.model.asso.FkResolvedByQueryRecordAssoc"
+    AssociationEnd="bookStore.model.asso.FkResolvedByQueryRecordAssoc.QueryRecord"
+    AssociationOtherEnd="bookStore.model.asso.FkResolvedByQueryRecordAssoc.Users"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="QueryRecord1"
+    Association="bookStore.model.asso.FkLoggedByQueryRecordAssoc"
+    AssociationEnd="bookStore.model.asso.FkLoggedByQueryRecordAssoc.QueryRecord1"
+    AssociationOtherEnd="bookStore.model.asso.FkLoggedByQueryRecordAssoc.Users1"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="Groupmembers1"
+    Association="bookStore.model.asso.Fk2GroupmembersAssoc1"
+    AssociationEnd="bookStore.model.asso.Fk2GroupmembersAssoc1.Groupmembers1"
+    AssociationOtherEnd="bookStore.model.asso.Fk2GroupmembersAssoc1.Users1"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="IssueRecords1"
+    Association="bookStore.model.asso.FkUNameIssueRecordsAssoc1"
+    AssociationEnd="bookStore.model.asso.FkUNameIssueRecordsAssoc1.IssueRecords1"
+    AssociationOtherEnd="bookStore.model.asso.FkUNameIssueRecordsAssoc1.Users1"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="ChkGenderUsers">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="CHK_GENDER_USERS"/>
+      <Attr Name="_checkCondition" Value="GENDER IN ('M','F','D')"/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="bookStore.model.entity.UsersEO.Gender"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="ChkUserTypeCodeUsers">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="CHK_USER_TYPE_CODE_USERS"/>
+      <Attr Name="_checkCondition"
+        Value="USER_TYPE_CODE IN ('BS_E_STUDENT','BS_E_LIBRARIAN','BS_E_ADMINISTRATOR')"/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="bookStore.model.entity.UsersEO.UserTypeCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="PkUsers"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PK_USERS"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="bookStore.model.entity.UsersEO.UName"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007372">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007372"/>
+      <Attr Name="_checkCondition" Value='"U_NAME" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="bookStore.model.entity.UsersEO.UName"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007373">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007373"/>
+      <Attr Name="_checkCondition" Value='"U_PASSWORD" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="bookStore.model.entity.UsersEO.UPassword"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007374">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007374"/>
+      <Attr Name="_checkCondition" Value='"USER_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="bookStore.model.entity.UsersEO.UserId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007375">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007375"/>
+      <Attr Name="_checkCondition" Value='"FIRST_NAME" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="bookStore.model.entity.UsersEO.FirstName"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007377">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007377"/>
+      <Attr Name="_checkCondition" Value='"EMAIL" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="bookStore.model.entity.UsersEO.Email"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007378">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007378"/>
+      <Attr Name="_checkCondition" Value='"USER_TYPE_CODE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="bookStore.model.entity.UsersEO.UserTypeCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007947">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007947"/>
+      <Attr Name="_checkCondition" Value='"GENDER" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="bookStore.model.entity.UsersEO.Gender"/>
+    </AttrArray>
+  </Key>
+</Entity>

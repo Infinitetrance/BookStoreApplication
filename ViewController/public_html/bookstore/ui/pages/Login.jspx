@@ -1,0 +1,252 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:form id="f1" defaultCommand="pt1.psl1.psl3.db2.pfl1.Signin_cb">
+        <af:pageTemplate viewId="/bookstore/ui/pages/templates/MainTemplate.jspx"
+                         id="pt1">
+          <f:facet name="Left">
+            <af:panelStretchLayout id="psl1" endWidth="27px" startWidth="24px"
+                                   topHeight="70px">
+              <f:facet name="center">
+                <af:panelStretchLayout id="psl3" bottomHeight="119px">
+                  <f:facet name="bottom">
+                    <af:decorativeBox id="db3" theme="medium">
+                      <f:facet name="center">
+                        <af:panelGroupLayout id="pgl1">
+                          <af:spacer width="110" height="10" id="s1"/>
+                          <af:commandButton text="Signup" id="cb2">
+                            <af:showPopupBehavior popupId="userRegPopup"/>
+                          </af:commandButton>
+                          <af:popup id="userRegPopup"
+                                    contentDelivery="lazyUncached"
+                                    popupFetchListener="#{userRegistrationBean.registerUserPopupFetchListener}"
+                                    popupCanceledListener="#{userRegistrationBean.registerUserPopupCancelListener}">
+                            <af:dialog id="d2" title="User Registration"
+                                       closeIconVisible="false"
+                                       affirmativeTextAndAccessKey="Register"
+                                       dialogListener="#{userRegistrationBean.registerUserDialogListener}">
+                              <af:panelFormLayout id="pfl2">
+                                <af:inputText value="#{bindings.UName.inputValue}"
+                                              label="#{bindings.UName.hints.label}"
+                                              required="#{bindings.UName.hints.mandatory}"
+                                              columns="#{bindings.UName.hints.displayWidth}"
+                                              maximumLength="#{bindings.UName.hints.precision}"
+                                              shortDesc="#{bindings.UName.hints.tooltip}"
+                                              id="it13">
+                                  <f:validator binding="#{bindings.UName.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.UPassword.inputValue}"
+                                              label="#{bindings.UPassword.hints.label}"
+                                              required="#{bindings.UPassword.hints.mandatory}"
+                                              columns="#{bindings.UPassword.hints.displayWidth}"
+                                              maximumLength="#{bindings.UPassword.hints.precision}"
+                                              shortDesc="#{bindings.UPassword.hints.tooltip}"
+                                              id="it5">
+                                  <f:validator binding="#{bindings.UPassword.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.UPasswordConfirm.inputValue}"
+                                              label="#{bindings.UPasswordConfirm.hints.label}"
+                                              required="#{bindings.UPasswordConfirm.hints.mandatory}"
+                                              columns="#{bindings.UPasswordConfirm.hints.displayWidth}"
+                                              maximumLength="#{bindings.UPasswordConfirm.hints.precision}"
+                                              shortDesc="#{bindings.UPasswordConfirm.hints.tooltip}"
+                                              id="it9">
+                                  <f:validator binding="#{bindings.UPasswordConfirm.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.UDescription.inputValue}"
+                                              label="#{bindings.UDescription.hints.label}"
+                                              required="#{bindings.UDescription.hints.mandatory}"
+                                              columns="#{bindings.UDescription.hints.displayWidth}"
+                                              maximumLength="#{bindings.UDescription.hints.precision}"
+                                              shortDesc="#{bindings.UDescription.hints.tooltip}"
+                                              id="it6">
+                                  <f:validator binding="#{bindings.UDescription.validator}"/>
+                                </af:inputText>
+                                <af:panelLabelAndMessage label="#{bindings.UserId.hints.label}"
+                                                         id="plam2">
+                                  <af:outputText value="#{bindings.UserId.inputValue}"
+                                                 id="ot6"/>
+                                </af:panelLabelAndMessage>
+                                <af:inputText value="#{bindings.FirstName.inputValue}"
+                                              label="#{bindings.FirstName.hints.label}"
+                                              required="#{bindings.FirstName.hints.mandatory}"
+                                              columns="#{bindings.FirstName.hints.displayWidth}"
+                                              maximumLength="#{bindings.FirstName.hints.precision}"
+                                              shortDesc="#{bindings.FirstName.hints.tooltip}"
+                                              id="it11">
+                                  <f:validator binding="#{bindings.FirstName.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.LastName.inputValue}"
+                                              label="#{bindings.LastName.hints.label}"
+                                              required="#{bindings.LastName.hints.mandatory}"
+                                              columns="#{bindings.LastName.hints.displayWidth}"
+                                              maximumLength="#{bindings.LastName.hints.precision}"
+                                              shortDesc="#{bindings.LastName.hints.tooltip}"
+                                              id="it3">
+                                  <f:validator binding="#{bindings.LastName.validator}"/>
+                                </af:inputText>
+                                <af:selectOneChoice value="#{bindings.Gender.inputValue}"
+                                                    label="#{bindings.Gender.label}"
+                                                    required="#{bindings.Gender.hints.mandatory}"
+                                                    shortDesc="#{bindings.Gender.hints.tooltip}"
+                                                    id="soc1">
+                                  <f:selectItems value="#{bindings.Gender.items}"
+                                                 id="si1"/>
+                                </af:selectOneChoice>
+                                <af:inputText value="#{bindings.Email.inputValue}"
+                                              label="#{bindings.Email.hints.label}"
+                                              required="#{bindings.Email.hints.mandatory}"
+                                              columns="#{bindings.Email.hints.displayWidth}"
+                                              maximumLength="#{bindings.Email.hints.precision}"
+                                              shortDesc="#{bindings.Email.hints.tooltip}"
+                                              id="it15">
+                                  <f:validator binding="#{bindings.Email.validator}"/>
+                                </af:inputText>
+                                <af:panelLabelAndMessage label="#{bindings.UserTypeCode.hints.label}"
+                                                         id="plam1">
+                                  <af:outputText value="#{bindings.UserTypeCode.inputValue}"
+                                                 id="ot5"/>
+                                </af:panelLabelAndMessage>
+                                <af:inputText value="#{bindings.AddressStreet.inputValue}"
+                                              label="#{bindings.AddressStreet.hints.label}"
+                                              required="#{bindings.AddressStreet.hints.mandatory}"
+                                              columns="#{bindings.AddressStreet.hints.displayWidth}"
+                                              maximumLength="#{bindings.AddressStreet.hints.precision}"
+                                              shortDesc="#{bindings.AddressStreet.hints.tooltip}"
+                                              id="it4">
+                                  <f:validator binding="#{bindings.AddressStreet.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.AddressCity.inputValue}"
+                                              label="#{bindings.AddressCity.hints.label}"
+                                              required="#{bindings.AddressCity.hints.mandatory}"
+                                              columns="#{bindings.AddressCity.hints.displayWidth}"
+                                              maximumLength="#{bindings.AddressCity.hints.precision}"
+                                              shortDesc="#{bindings.AddressCity.hints.tooltip}"
+                                              id="it8">
+                                  <f:validator binding="#{bindings.AddressCity.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.AddressState.inputValue}"
+                                              label="#{bindings.AddressState.hints.label}"
+                                              required="#{bindings.AddressState.hints.mandatory}"
+                                              columns="#{bindings.AddressState.hints.displayWidth}"
+                                              maximumLength="#{bindings.AddressState.hints.precision}"
+                                              shortDesc="#{bindings.AddressState.hints.tooltip}"
+                                              id="it14">
+                                  <f:validator binding="#{bindings.AddressState.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.AddressPostalCode.inputValue}"
+                                              label="#{bindings.AddressPostalCode.hints.label}"
+                                              required="#{bindings.AddressPostalCode.hints.mandatory}"
+                                              columns="#{bindings.AddressPostalCode.hints.displayWidth}"
+                                              maximumLength="#{bindings.AddressPostalCode.hints.precision}"
+                                              shortDesc="#{bindings.AddressPostalCode.hints.tooltip}"
+                                              id="it10">
+                                  <f:validator binding="#{bindings.AddressPostalCode.validator}"/>
+                                  <af:convertNumber groupingUsed="false"
+                                                    pattern="#{bindings.AddressPostalCode.format}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.AddressCountryCode.inputValue}"
+                                              label="#{bindings.AddressCountryCode.hints.label}"
+                                              required="#{bindings.AddressCountryCode.hints.mandatory}"
+                                              columns="#{bindings.AddressCountryCode.hints.displayWidth}"
+                                              maximumLength="#{bindings.AddressCountryCode.hints.precision}"
+                                              shortDesc="#{bindings.AddressCountryCode.hints.tooltip}"
+                                              id="it12">
+                                  <f:validator binding="#{bindings.AddressCountryCode.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.MobilePhoneNumber.inputValue}"
+                                              label="#{bindings.MobilePhoneNumber.hints.label}"
+                                              required="#{bindings.MobilePhoneNumber.hints.mandatory}"
+                                              columns="#{bindings.MobilePhoneNumber.hints.displayWidth}"
+                                              maximumLength="#{bindings.MobilePhoneNumber.hints.precision}"
+                                              shortDesc="#{bindings.MobilePhoneNumber.hints.tooltip}"
+                                              id="it7">
+                                  <f:validator binding="#{bindings.MobilePhoneNumber.validator}"/>
+                                  <af:convertNumber groupingUsed="false"
+                                                    pattern="#{bindings.MobilePhoneNumber.format}"/>
+                                </af:inputText>
+                              </af:panelFormLayout>
+                            </af:dialog>
+                          </af:popup>
+                        </af:panelGroupLayout>
+                      </f:facet>
+                      <f:facet name="top">
+                        <af:decorativeBox id="db4" theme="dark">
+                          <f:facet name="center">
+                            <af:panelStretchLayout id="psl4" topHeight="23px">
+                              <f:facet name="center">
+                                <af:outputText value="Do user registration to get access: " id="ot3"
+                                               inlineStyle="font-size:0.3cm; text-align:center;"/>
+                              </f:facet>
+                              <f:facet name="top">
+                                <af:outputText value="Sign Up now" id="ot4"
+                                               inlineStyle="font-size:0.45cm; text-align:center;"/>
+                              </f:facet>
+                            </af:panelStretchLayout>
+                          </f:facet>
+                        </af:decorativeBox>
+                      </f:facet>
+                    </af:decorativeBox>
+                  </f:facet>
+                  <f:facet name="center">
+                    <af:decorativeBox id="db2" theme="medium">
+                      <f:facet name="center">
+                        <af:panelFormLayout id="pfl1" >
+                          <af:inputText
+                                        label="Username"
+                                        columns="25"
+                                        id="it2"
+                                        inlineStyle="text-align:center;"
+                                        required="true"
+                                        value="#{loginBean.username}"/>
+                          <af:inputText
+                                        label="Password"
+                                        columns="25"
+                                        id="it1"
+                                        inlineStyle="text-align:center;"
+                                        required="true" secret="true"
+                                        value="#{loginBean.password}"/>
+                          <af:commandButton text="Signin" id="Signin_cb"
+                                            inlineStyle="text-align:center;"
+                                            action="#{loginBean.doLogin}"/>
+                        </af:panelFormLayout>
+                      </f:facet>
+                    </af:decorativeBox>
+                  </f:facet>
+                </af:panelStretchLayout>
+              </f:facet>
+              <f:facet name="top">
+                <af:decorativeBox id="db1" theme="dark">
+                  <f:facet name="center">
+                    <af:panelStretchLayout id="psl2" topHeight="30px">
+                      <f:facet name="center">
+                        <af:outputText value="Enter username and password to logon: "
+                                       id="ot2"
+                                       inlineStyle="font-size:0.3cm; text-align:center;"/>
+                      </f:facet>
+                      <f:facet name="top">
+                        <af:outputText value="Login to book store" id="ot1"
+                                       inlineStyle="font-size:0.45cm; text-align:center;"/>
+                      </f:facet>
+                    </af:panelStretchLayout>
+                  </f:facet>
+                </af:decorativeBox>
+              </f:facet>
+            </af:panelStretchLayout>
+          </f:facet>
+          <f:facet name="Main">
+            <af:spacer width="10" height="10" id="s4"/>
+          </f:facet>
+          <f:attribute name="Title" value="W3L0M3 2 300K 2T0R3"/>
+          <f:attribute name="LeftSpliterPosition" value="300"/>
+        </af:pageTemplate>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

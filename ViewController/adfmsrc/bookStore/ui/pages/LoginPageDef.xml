@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="LoginPageDef"
+                Package="bookstore.ui.pages"
+                ControllerClass="bookStore.ui.commons.BSPhaseListener">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="Users1" RangeSize="25"
+              DataControl="UserRegistrationAMDataControl" id="Users1Iterator"/>
+    <iterator Binds="GroupMembers1" RangeSize="10"
+              DataControl="UserRegistrationAMDataControl"
+              id="GroupMembers1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="Users1Iterator" id="UName">
+      <AttrNames>
+        <Item Value="UName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Users1Iterator" id="UPassword">
+      <AttrNames>
+        <Item Value="UPassword"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Users1Iterator" id="UPasswordConfirm">
+      <AttrNames>
+        <Item Value="UPasswordConfirm"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Users1Iterator" id="UDescription">
+      <AttrNames>
+        <Item Value="UDescription"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Users1Iterator" id="UserId">
+      <AttrNames>
+        <Item Value="UserId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Users1Iterator" id="FirstName">
+      <AttrNames>
+        <Item Value="FirstName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Users1Iterator" id="LastName">
+      <AttrNames>
+        <Item Value="LastName"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="Users1Iterator" StaticList="false" Uses="LOV_Gender"
+          id="Gender" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="Users1Iterator" id="Email">
+      <AttrNames>
+        <Item Value="Email"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Users1Iterator" id="UserTypeCode">
+      <AttrNames>
+        <Item Value="UserTypeCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Users1Iterator" id="AddressStreet">
+      <AttrNames>
+        <Item Value="AddressStreet"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Users1Iterator" id="AddressCity">
+      <AttrNames>
+        <Item Value="AddressCity"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Users1Iterator" id="AddressState">
+      <AttrNames>
+        <Item Value="AddressState"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Users1Iterator" id="AddressPostalCode">
+      <AttrNames>
+        <Item Value="AddressPostalCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Users1Iterator" id="AddressCountryCode">
+      <AttrNames>
+        <Item Value="AddressCountryCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Users1Iterator" id="MobilePhoneNumber">
+      <AttrNames>
+        <Item Value="MobilePhoneNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GroupMembers1Iterator" id="GMember">
+      <AttrNames>
+        <Item Value="GMember"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GroupMembers1Iterator" id="GName">
+      <AttrNames>
+        <Item Value="GName"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" DataControl="UserRegistrationAMDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action id="Rollback" DataControl="UserRegistrationAMDataControl"
+            RequiresUpdateModel="false" Action="rollbackTransaction"/>
+    <action IterBinding="Users1Iterator" id="CreateInsertUser"
+            InstanceName="UserRegistrationAMDataControl.Users1"
+            DataControl="UserRegistrationAMDataControl"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="GroupMembers1Iterator" id="CreateInsertGroupMember"
+            InstanceName="UserRegistrationAMDataControl.GroupMembers1"
+            DataControl="UserRegistrationAMDataControl"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <methodAction id="getNextDBSequence"
+                  InstanceName="UserRegistrationAMDataControl.dataProvider"
+                  DataControl="UserRegistrationAMDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="getNextDBSequence" IsViewObjectMethod="false"
+                  ReturnName="data.UserRegistrationAMDataControl.methodResults.getNextDBSequence_UserRegistrationAMDataControl_dataProvider_getNextDBSequence_result"/>
+  </bindings>
+</pageDefinition>

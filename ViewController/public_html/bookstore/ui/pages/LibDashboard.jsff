@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
+  <af:panelStretchLayout id="psl1" startWidth="35px" endWidth="35px"
+                         topHeight="35px" bottomHeight="30px"
+                         inlineStyle='background-image:url("../../../images/tile.png");'>
+    <f:facet name="bottom">
+      <af:spacer width="10" height="10" id="s3"/>
+    </f:facet>
+    <f:facet name="center">
+      <af:deck id="libDashDeck" displayedChild="dashboardPSL"
+               binding="#{viewScope.libDashboard.deck}">
+        <af:transition transition="slideRight" triggerType="backNavigate"/>
+        <af:transition transition="slideLeft" triggerType="forwardNavigate"/>
+        <af:panelStretchLayout id="dashboardPSL" startWidth="10px"
+                               endWidth="10px" topHeight="30px"
+                               bottomHeight="10px"
+                               inlineStyle="border-color:#91C9FF; border-style:groove; border-width:thin;">
+          <f:facet name="center">
+            <af:panelDashboard id="pd1" columns="2" rowHeight="480px">
+              <af:decorativeBox id="db1" theme="light">
+                <f:facet name="center">
+                  <dvt:barChart id="bookReserveFreqBarChart" var="row"
+                                value="#{bindings.IssueRecordReserveFrequencyView1.collectionModel}"
+                                title="Book Reservation Frequency"
+                                subtitle="Manifests Reservation Frequency For Each Book"
+                                footnote="Leverage it to decide, as how many copeis per book are needed">
+                    <dvt:chartLegend id="cl1"/>
+                    <f:facet name="dataStamp">
+                      <dvt:chartDataItem id="di1"
+                                         value="#{row.ReserveFrequency}"
+                                         group="#{row.BookId}"
+                                         series="#{bindings.IssueRecordReserveFrequencyView1.hints.ReserveFrequency.label}"/>
+                    </f:facet>
+                  </dvt:barChart>
+                </f:facet>
+              </af:decorativeBox>
+              <af:decorativeBox id="db2" theme="light">
+                <f:facet name="center">
+                  <dvt:pieChart id="queryResolutionStatuspPeChart" var="row"
+                                value="#{bindings.QueryRecordStatusPieView1.collectionModel}"
+                                threeDEffect="on"
+                                title="Query Resolution Track"
+                                footnote="Manifests resolution track of queries logged.">
+                    <dvt:chartLegend id="cl2"/>
+                    <dvt:pieDataItem id="di2" value="#{row.NoOfQueries}"
+                                     label="#{row.Status}"/>
+                  </dvt:pieChart>
+                </f:facet>
+              </af:decorativeBox>
+            </af:panelDashboard>
+          </f:facet>
+          <f:facet name="top">
+            <af:panelHeader text="#{stDashboard.currentUser}'s Dashboard" id="ph2"
+                            inlineStyle="background-color:Window;">
+              <f:facet name="context"/>
+              <f:facet name="menuBar"/>
+              <f:facet name="toolbar"/>
+              <f:facet name="legend"/>
+              <f:facet name="info"/>
+            </af:panelHeader>
+          </f:facet>
+        </af:panelStretchLayout>
+        <af:panelStretchLayout id="submitBookPSL" startWidth="10px"
+                               endWidth="10px" topHeight="10px"
+                               bottomHeight="10px"
+                               inlineStyle="border-color:#91C9FF; border-style:groove; border-width:thin;">
+          <f:facet name="center">
+            <af:region value="#{bindings.LibSubmitBookTF1.regionModel}"
+                       id="r1"/>
+          </f:facet>
+        </af:panelStretchLayout>
+        <af:panelStretchLayout id="queriesPSL" startWidth="10px" endWidth="10px"
+                               topHeight="10px" bottomHeight="10px"
+                               inlineStyle="border-color:#91C9FF; border-style:groove; border-width:thin;">
+          <f:facet name="center">
+            <af:region value="#{bindings.LibQueriesTF1.regionModel}" id="r2"/>
+          </f:facet>
+        </af:panelStretchLayout>
+      </af:deck>
+    </f:facet>
+    <f:facet name="start">
+      <af:spacer width="10" height="10" id="s1"/>
+    </f:facet>
+    <f:facet name="end">
+      <af:spacer width="10" height="10" id="s2"/>
+    </f:facet>
+    <f:facet name="top">
+      <af:panelHeader text="/" id="ph1"
+                      inlineStyle='background-image:url("../../../images/tile.png"); background-repeat:repeat;'>
+        <f:facet name="context"/>
+        <f:facet name="menuBar"/>
+        <f:facet name="toolbar">
+          <af:toolbar id="t1">
+            <af:commandToolbarButton text="Dashboard"
+                                     id="commandToolbarButton1"
+                                     actionListener="#{viewScope.libDashboard.dashboardActionListener}"/>
+            <af:commandToolbarButton text="Submit Book" id="ctb1"
+                                     actionListener="#{viewScope.libDashboard.submitBookActionListener}"/>
+            <af:commandToolbarButton text="Queries" id="ctb2"
+                                     actionListener="#{viewScope.libDashboard.queriesActionListener}"/>
+          </af:toolbar>
+        </f:facet>
+        <f:facet name="legend"/>
+        <f:facet name="info"/>
+      </af:panelHeader>
+    </f:facet>
+  </af:panelStretchLayout>
+</jsp:root>

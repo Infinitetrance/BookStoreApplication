@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="StDashboardPageDef"
+                Package="bookstore.ui.pages"
+                ControllerClass="bookStore.ui.beans.StDashBoardPL">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="BooksReservedVOInstance" RangeSize="25"
+              DataControl="StudentChoresAMDataControl"
+              id="BooksReservedVOInstanceIterator"/>
+  </executables>
+  <bindings>
+    <methodAction id="setBooksReservedVOBindVar"
+                  InstanceName="StudentChoresAMDataControl.dataProvider"
+                  DataControl="StudentChoresAMDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="setBooksReservedVOBindVar"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="b_UName" NDType="java.lang.String"/>
+    </methodAction>
+    <tree IterBinding="BooksReservedVOInstanceIterator"
+          id="BooksReservedVOInstance">
+      <nodeDefinition DefName="bookStore.model.view.BooksReservedVO"
+                      Name="BooksReservedVOInstance0">
+        <AttrNames>
+          <Item Value="RecordId"/>
+          <Item Value="BookIdFromIssueRecord"/>
+          <Item Value="Title"/>
+          <Item Value="Status"/>
+          <Item Value="IssueDate"/>
+          <Item Value="ReturnDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="applyVCForUsersVO" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="applyVCForUsersVO"
+                  IsViewObjectMethod="false"
+                  DataControl="StudentChoresAMDataControl"
+                  InstanceName="StudentChoresAMDataControl.dataProvider">
+      <NamedData NDName="bindVariableValue"
+                 NDValue="#{requestScope.stDashboard.currentUser}"
+                 NDType="java.lang.String" NDOption="1"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

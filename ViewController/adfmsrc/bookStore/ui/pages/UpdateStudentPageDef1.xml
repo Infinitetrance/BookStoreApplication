@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="UpdateStudentPageDef1"
+                Package="bookstore.ui.pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="UsersVOInstance" RangeSize="25"
+              DataControl="StudentChoresAMDataControl"
+              id="UsersVOInstanceIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="UsersVOInstanceIterator" id="UserId">
+      <AttrNames>
+        <Item Value="UserId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="UsersVOInstanceIterator" id="UName">
+      <AttrNames>
+        <Item Value="UName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="UsersVOInstanceIterator" id="UDescription">
+      <AttrNames>
+        <Item Value="UDescription"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="UsersVOInstanceIterator" id="FirstName">
+      <AttrNames>
+        <Item Value="FirstName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="UsersVOInstanceIterator" id="LastName">
+      <AttrNames>
+        <Item Value="LastName"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="UsersVOInstanceIterator" StaticList="false"
+          Uses="LOV_Gender" id="Gender" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="UsersVOInstanceIterator" id="Email">
+      <AttrNames>
+        <Item Value="Email"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="UsersVOInstanceIterator" id="UserTypeCode">
+      <AttrNames>
+        <Item Value="UserTypeCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="UsersVOInstanceIterator" id="AddressStreet">
+      <AttrNames>
+        <Item Value="AddressStreet"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="UsersVOInstanceIterator" id="AddressCity">
+      <AttrNames>
+        <Item Value="AddressCity"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="UsersVOInstanceIterator" id="AddressState">
+      <AttrNames>
+        <Item Value="AddressState"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="UsersVOInstanceIterator"
+                     id="AddressPostalCode">
+      <AttrNames>
+        <Item Value="AddressPostalCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="UsersVOInstanceIterator"
+                     id="AddressCountryCode">
+      <AttrNames>
+        <Item Value="AddressCountryCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="UsersVOInstanceIterator"
+                     id="MobilePhoneNumber">
+      <AttrNames>
+        <Item Value="MobilePhoneNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" DataControl="StudentChoresAMDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action id="Rollback" DataControl="StudentChoresAMDataControl"
+            RequiresUpdateModel="false" Action="rollbackTransaction"/>
+    <attributeValues IterBinding="UsersVOInstanceIterator" id="UPassword">
+      <AttrNames>
+        <Item Value="UPassword"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="BooksEO"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="BOOKS"
+  AliasName="BooksEO"
+  BindingStyle="OracleName"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <AttrArray Name="_publishEvents"/>
+  </DesignTime>
+  <Attribute
+    Name="BookId"
+    IsNotNull="true"
+    Precision="15"
+    Scale="0"
+    ColumnName="BOOK_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="BOOKS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="16"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Title"
+    IsNotNull="true"
+    Precision="200"
+    ColumnName="TITLE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="BOOKS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Author1"
+    IsNotNull="true"
+    Precision="60"
+    ColumnName="AUTHOR1"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="BOOKS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="60"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Author2"
+    Precision="60"
+    ColumnName="AUTHOR2"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="BOOKS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="60"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Author3"
+    Precision="60"
+    ColumnName="AUTHOR3"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="BOOKS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="60"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Category"
+    IsNotNull="true"
+    Precision="15"
+    Scale="0"
+    ColumnName="CATEGORY"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="BOOKS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Status"
+    IsNotNull="true"
+    Precision="9"
+    ColumnName="STATUS"
+    SQLType="CHAR"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    TableName="BOOKS"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="9"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ParentCategory"
+    Precision="15"
+    Scale="0"
+    ColumnName="PARENT_CATEGORY"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="BOOKS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="16"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Description"
+    Precision="300"
+    ColumnName="DESCRIPTION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="BOOKS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="300"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="IssueRecords"
+    Association="bookStore.model.asso.FkBookIdIssueRecordsAssoc"
+    AssociationEnd="bookStore.model.asso.FkBookIdIssueRecordsAssoc.IssueRecords"
+    AssociationOtherEnd="bookStore.model.asso.FkBookIdIssueRecordsAssoc.Books"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="Categories"
+    Association="bookStore.model.asso.FkParentCategoryBooksAssoc"
+    AssociationEnd="bookStore.model.asso.FkParentCategoryBooksAssoc.Categories"
+    AssociationOtherEnd="bookStore.model.asso.FkParentCategoryBooksAssoc.Books"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Categories1"
+    Association="bookStore.model.asso.FkCategoryBooksAssoc"
+    AssociationEnd="bookStore.model.asso.FkCategoryBooksAssoc.Categories1"
+    AssociationOtherEnd="bookStore.model.asso.FkCategoryBooksAssoc.Books1"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="IssueRecords1"
+    Association="bookStore.model.asso.FkBookIdIssueRecordsAssoc1"
+    AssociationEnd="bookStore.model.asso.FkBookIdIssueRecordsAssoc1.IssueRecords1"
+    AssociationOtherEnd="bookStore.model.asso.FkBookIdIssueRecordsAssoc1.Books1"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="IssueRecords2"
+    Association="bookStore.model.asso.FkBookIdIssueRecordsAssoc2"
+    AssociationEnd="bookStore.model.asso.FkBookIdIssueRecordsAssoc2.IssueRecords2"
+    AssociationOtherEnd="bookStore.model.asso.FkBookIdIssueRecordsAssoc2.Books2"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="Categories2"
+    Association="bookStore.model.asso.FkCategoryBooksAssoc1"
+    AssociationEnd="bookStore.model.asso.FkCategoryBooksAssoc1.Categories2"
+    AssociationOtherEnd="bookStore.model.asso.FkCategoryBooksAssoc1.Books2"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Categories3"
+    Association="bookStore.model.asso.FkParentCategoryBooksAssoc1"
+    AssociationEnd="bookStore.model.asso.FkParentCategoryBooksAssoc1.Categories3"
+    AssociationOtherEnd="bookStore.model.asso.FkParentCategoryBooksAssoc1.Books3"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="ChkStatusBooks">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="CHK_STATUS_BOOKS"/>
+      <Attr Name="_checkCondition" Value="STATUS IN ('BOOKED','AVAILABLE')"/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="bookStore.model.entity.BooksEO.Status"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="PkBooks"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PK_BOOKS"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="bookStore.model.entity.BooksEO.BookId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007388">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007388"/>
+      <Attr Name="_checkCondition" Value='"BOOK_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="bookStore.model.entity.BooksEO.BookId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007389">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007389"/>
+      <Attr Name="_checkCondition" Value='"TITLE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="bookStore.model.entity.BooksEO.Title"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007390">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007390"/>
+      <Attr Name="_checkCondition" Value='"AUTHOR1" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="bookStore.model.entity.BooksEO.Author1"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007391">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007391"/>
+      <Attr Name="_checkCondition" Value='"CATEGORY" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="bookStore.model.entity.BooksEO.Category"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007392">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007392"/>
+      <Attr Name="_checkCondition" Value='"STATUS" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="bookStore.model.entity.BooksEO.Status"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkCategoryBooks">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_CATEGORIES"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_CATEGORY_BOOKS"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="bookStore.model.entity.BooksEO.Category"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkParentCategoryBooks">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_CATEGORIES"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_PARENT_CATEGORY_BOOKS"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="bookStore.model.entity.BooksEO.ParentCategory"/>
+    </AttrArray>
+  </Key>
+</Entity>
